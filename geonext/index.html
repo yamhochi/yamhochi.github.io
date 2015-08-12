@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bicycle real distance</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100italic,400,500' rel='stylesheet' type='text/css'>
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      
+      div.cartodb-infobox {
+         position: absolute;     
+          text-align: left;
+          line-height:0.8;     
+          width: 500px;          
+          height: auto; 
+          margin: 0px;        
+          padding: 4px;      
+          font-family:'Roboto', sans-serif;    
+          background: #f0f0f0;
+          box-shadow: 0px 0px 0px 0px rgba(#ffffff);
+        }
+
+        div.cartodb-infobox h1{
+          /*padding:10px;*/
+          line-height: 80%;
+          font-size:150%;
+          font-weight: 500;
+        }
+
+        div.cartodb-infobox h2{
+          padding-top:4px;
+          font-size:100%;
+          font-weight: 400;
+        }
+
+        div.cartodb-infobox h3{
+          font-size:100%;
+          padding-top:4px;
+          line-height: auto;
+          font-weight: 400;
+          font-weight:100;
+        }
+
+        div.cartodb-tooltip h4{
+          padding:0;
+          font-size:9px;
+          font-weight:100;
+          font-style:italic;
+        }
+
+         div.cartodb-tooltip { 
+          position: absolute;     
+          text-align: left;
+          line-height:0.5;     
+          width: auto;          
+          height: auto; 
+          margin: 0px;        
+          padding: 4px;      
+          font-family:'Roboto', sans-serif;    
+          background: #f0f0f0;
+          border: 0px;    
+          box-shadow: 3px 3px 10px -5px rgba(0,0,0,0.49);
+          pointer-events: none;  
+          opacity: 1;  
+          left: 100px;
+          top: 100px;
+          font-size:11px;
+          font-weight: 500;
+          z-index: 4;
+        }
+
+        div.cartodb-tooltip h1{
+          padding:0;
+          font-size:11px;
+          font-weight: 500;
+        }
+
+        div.cartodb-tooltip h2{
+          padding:0;
+          font-size:10px;
+          font-weight: 400;
+        }
+
+        div.cartodb-tooltip p{
+          padding:0;
+          font-size:9px;
+          font-weight:100;
+          font-style:italic;
+        }
+
+        div.cartodb-tooltip h3{
+          padding:0;
+          line-height:0.2;
+          font-size:9px;
+          font-weight:400;
+        } 
+
+        #header {
+                width: 85%;
+                border-bottom: 1px solid #FEFEF8;
+                /*background-color: aqua;*/
+                height: auto;
+                margin: auto;
+                padding-top:12px;
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-bottom:12px;
+                font-family:'Roboto', sans-serif; 
+                box-shadow: 0px 0px 2px 2px #f0f0f0; 
+
+            }
+
+            #headerLeft {
+                /*background-color: white;*/
+                float:right;
+                width: 80%;
+                height: auto;
+            }
+
+             #headerRight {
+                overflow: auto;
+                /*background-color: red;*/
+                height: auto;
+                /*width:30%;*/
+
+            }
+
+            #footer {
+                width: 100%;
+                height: auto;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                border-top: 1px solid #f0f0f0;
+            }
+
+             #footerContent {
+                float:center;
+                width: 80%;
+                height: auto;
+                padding-left:10%;
+                padding-right: 10%;
+                font-family:'Roboto', sans-serif;   
+            }
+
+            div.headerLeft p{
+                /*font-size: 1em;*/
+                font-size:300%; 
+                color: #b94a48;
+            }
+
+            div.footerContent p{
+                font-size:12px; 
+            }
+
+     
+    </style>
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+</head>
+<body>
+
+	<!-- <div id="overlay" style="height: 50px;">.</div> -->
+<div id="header">
+  <div id="headerLeft"><p><font size="4.5pt">How far can cyclists cycle from Melbourne CBD?</font></p></div>
+  <div id="headerRight"><p><a href="https://twitter.com/yamhochi"><font color="#fff"size="3pt">@yamhochi</font></a></p></div>
+</div>
+<div id="gifs" align="middle" style="margin-top: 20px;">
+<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" height="423" width="846" >
+<img class="shrinkToFit decoded" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" height="423" width="846">
+<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all2.gif" height="423" width="846">
+</div>
+
+<div id="map"></div>
+  <!-- <div id="ove rlay">.</div> -->
+
+<script type="infowindow/html" id="infowindow_template">
+<div class="cartodb-popup v2">
+  <a href="#close" class="cartodb-popup-close-button close">x</a>
+  <div class="cartodb-popup-content-wrapper">
+    <div class="cartodb-popup-content">
+      <h4>name</h4>
+      <p>{{name}}</p>
+    </div>
+  </div>
+  <div class="cartodb-popup-tip-container"></div>
+</div>
+</script>
+
+<script type="infowindow/html" id="infowindow_template">
+<div class="cartodb-tooltip-content-wrapper">
+  <div class="cartodb-tooltip-content">
+    <h4>name</h4>
+    <p>{{name}}</p>
+  </div>
+</div>
+</script>
+
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+	<script>
+  
+		window.onload = function(){
+            // var map = new L.Map('map', {
+            //     center: [-33.8650, 151.2094],
+            //     zoom: 8
+            //   });
+
+            var sql = new cartodb.SQL({ user: 'ay', format: 'geojson' });
+            cartodb.createVis(map,  'https://yamhochi.cartodb.com/api/v2/viz/405fd06a-4094-11e5-92df-0e853d047bba/viz.json')
+                // .addTo(map)
+                .on('done', function(vis, layers) {
+                  //do stuff
+                  //define sublayer
+                  var sublayer = layers[1].getSubLayer(0);
+                  var tz = layers[1].getSubLayer(1);
+                })
+              }
+
+
+	</script>
+  <div id="footer">
+  <div id="footerContent">
+
+    <p stlye ="line-height: 5pt;">
+
+      <P><b>Project overview</b></p>
+      <p>In thinking about bike friendliness of a city, we often associate associate rideability with number of riders, distance travelled, road safety and infrastructure availability or the likes to decide whether a city is bike friendly or not. This exercise continues to investigate the underlying ridership of a city and uses simplified visual outputs to help users understand bike paths and associated infrastructure utilisation.</p>
+
+      <p>The first part of the visualisation (as shown in the animated maps) aims to measure the rideability of bike paths by using a weighted distance framework. It measures the possible number of trips entering Melbourne CBD based on a 20km threshold and discussion of the results will be provided in the results section. This aims to investigate the cost of travelling on a bicycle based on a number physical, topological, predictable and unpredictable factors. It also aims to predict the possible outcomes of that journey based on the implied assumptions. In general, journeys that are free from hussles of traffic and heavy vehicles improve people's willingness to ride therefore stimulating higher number of riders and demand for bike paths. Journeys that are elevated, have possible exposure to road hazards and air polution, are undesireable and generally perceived as being further than it may seem. These undesireable, poorly serviced areas simply flag the need for better infrastructure provision in order to meet growing demands.</p>
+
+      <p>Ultimately, visualising trip distance and trip densities and trip locations helps authorities weigh out the costs and benefits of their investments and help them better prepare for the future.</p>
+
+      <p>The second part of the visualisation drills down the details of the data that was driving the first part of the work. In this case the weighted cost is translated into a bike friendliness metric while the bike path demand was derived by observing the number of journeys intersecting with a particular segment of the road. It should be noted that the number of journeys are simply a function of decaying distance and/or weighted decaying distance and not an actual number of bike count. General research shows that for every 1km increase in distance, there is likely to be 2% or more riders for trips between 0-3km. For trips greater than 3km, the decaying distance relationship is 1% rider per 1km distance.<p>
+
+ <P><b>Data and methods</b></p>
+      <p>A total of 5 datasets were from VicRoads and 1 from Lands Victoria were used in to predict bike friendliness.
+      <p>1. Heavy traffic volumes that may pose danger to cyclists on the road (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/147696bb47544a209e0a5e79e165d1b0_0)</p>
+      <p>2. Passing trucks and heavy vehicles that would discount the experience of cycling on roads (same as 1)</p>
+      <p>3. Same as above, a bike path sharing the same road as buses means cyclists are constantly experiencing potential air and sound pollution from passing vehicles (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/a956dfc368e6429492d0e7d7f3b7124a_0)</p>
+      <p>4. The number of traffic light stops per kilometre http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/1f3cb954526b471596dbffa30e56bb32_0</p>
+      <p>5. Historical accident data indicating the safety of a dedicated bike path (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/0fd99282ab1b466bb41c2da868f4aa8f_0)</p>
+      <p>6. The slope steepness on a path indicating cyclists to either take a longer route than expected or consider other transport options (https://www.data.vic.gov.au/data/dataset/vicmap-elevation-10-20-contours-relief)</p>
+
+<p>This is aggregated and multiplied with road distance to produce a actual weighted distance for each road node. PgRouting, an open sourced routing server is used to determine the path, the actual distance and the weighted distance of over 1700 locations in Melbourne Metropolitan area. The weighted scores for each road node is visualised on the interactive map above.</p>
+
+<p><b>Results</b><p>
+
+<p><b>Map1</b> - As shown on the first map above, suburbs in Inner Ring Melbourne to are generally able to access the CBD and are within 10 kilometres actual distance. Our model predicted the weighted distance is as far as a 20 kilometre bike ride away.</p>
+
+<p><b>Map 2</b> - The key difference between Map1 and Map 2 is that the number of traffic flows were completely removed from the predictor. This is to examine how much difference in distance it would make, if cyclists can be completely free from road traffic and possible hazards.
+
+<p>Results show that by removing traffic from roads, the city is able to attract more 1-3 km riders and possibly more riders from the North Eastern suburbs.</p>
+
+
+<p><b>Map 3</b> - Almost 60%-70% of the Metropolitan Area has access to the CBD within a 20 kilometre bike ride. That is if all roads were created flat and equal without obstruction of external traffic and hazards. I note that visuals for this scenario are quite skewed by the noise from the animation. However further investigation to the data showed that the network analysis was run correctly and  </p>
+
+<p><b>Map 4</b> - This serves as a exploratary data analysis tool to help viewers understand more about the weighted distance results. In principal, each road node should have a distance or weighted distance metric defined by the user. The algorithm then searches for the nearest and cheapest node based on these distance metrics, and iterates through the dataset until it reaches a specified destination. This weighted distance result, translated into a bike friendliness result is particularly useful in detecting poor infrastructure utilisation along a road, possible redundancies and risks if unattended. 
+
+<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD. But since this analysis was done purely based on modelling assumptions, it would be beneficial to compare the results with real bike counts to determine whether the predictions were appropriately translated. </p>
+
+<p><b>Credits</b></p>
+<p>Special thanks to</p>
+<p>MMQGIS for the animation tool http://michaelminn.com/linux/mmqgis/</p>
+<p>QGIS community for all the online tutorials</p>
+<p>PSQL, POSTGIS for making such a wonderful open source tool</p>
+<p>CartoDB for one-click mapping</p>
+<p>Data.Vic and Geonext for promoting awareness for open data</p>
+
+<a href="http://www.sgsep.com.au/team/consultants/andie-yam/">About Me</a>
+ or <a href="https://twitter.com/yamhochi">Tweet me @yamhochi</a>
+
+<!--     <p><a href="#"><font color="#92d050">Read more...</font></a></p> -->
+  </div>
+</div>
+</body>
+</html>
+
