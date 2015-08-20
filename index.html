@@ -100,11 +100,11 @@
           font-weight:400;
         } 
 
-        #header {
+/*        #header {
                 width: 85%;
                 border-bottom: 1px solid #FEFEF8;
                 /*background-color: aqua;*/
-                height: auto;
+/*                height: auto;
                 margin: auto;
                 padding-top:12px;
                 padding-left: 10%;
@@ -112,6 +112,36 @@
                 padding-bottom:12px;
                 font-family:'Roboto', sans-serif; 
                 box-shadow: 0px 0px 2px 2px #f0f0f0; 
+
+            }*/
+
+            #header {
+                width: 100%;
+                border-bottom: 1px solid #FEFEF8;
+                background-color: #fff;
+                height: auto;
+                margin: auto;
+                padding-top:12px;
+                padding-left: 0%;
+                padding-right: 0%;
+                padding-bottom:12px;
+                font-family:'Roboto', sans-serif; 
+                box-shadow: 0px 0px 2px 2px #f0f0f0; 
+
+            }
+
+            #headerin{
+                width: 80%;
+                /*border-bottom: 1px solid #FEFEF8;*/
+                background-color: #fff;
+                height: auto;
+                margin: auto;
+                padding-top:12px;
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-bottom:12px;
+                font-family:'Roboto', sans-serif; 
+                /*box-shadow: 0px 0px 2px 2px #f0f0f0; */
 
             }
 
@@ -133,17 +163,21 @@
             #footer {
                 width: 100%;
                 height: auto;
-                padding-top: 12px;
+                padding-top: 12px; /*12*/
                 padding-bottom: 12px;
                 border-top: 1px solid #f0f0f0;
+                float:center;
             }
 
              #footerContent {
                 float:center;
-                width: 80%;
+                margin: auto;
+                /*background-color: yellow;*/
+                width: 70%;
                 height: auto;
                 padding-left:10%;
                 padding-right: 10%;
+                padding-bottom: 50px;
                 font-family:'Roboto', sans-serif;   
             }
 
@@ -166,13 +200,13 @@
 
 	<!-- <div id="overlay" style="height: 50px;">.</div> -->
 <div id="header">
-  <div id="headerLeft"><p><font size="5.5pt">Mapping Melbourne's Bike-ability</font></p></div>
-  <div id="headerRight"><p><a href="https://twitter.com/yamhochi"><font color="#fff"size="3pt">@yamhochi</font></a></p></div>
+  <div id="headerin" align="middle"><p><font size="5.5pt">Mapping Melbourne's Bike-ability</font></p></div>
+<!--   <div id="headerRight"><p><a href="https://twitter.com/yamhochi"><font color="#fff"size="3pt">@yamhochi</font></a></p></div> -->
 </div>
-<div id="gifs" align="middle" style="margin-top: 20px;">
-<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" height="423" width="846" >
-<img class="shrinkToFit decoded" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" height="423" width="846">
-<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all2.gif" height="423" width="846">
+<div id="gifs" align="middle" style="margin-top: 10px;">
+<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" height="auto" width="70%" >
+<img class="shrinkToFit decoded" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" height="auto" width="70%" >
+<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all2.gif" height="auto" width="70%">
 </div>
 
 <div id="map"></div>
@@ -227,14 +261,18 @@
 
     <p stlye ="line-height: 5pt;">
 
-      <P><b>Project overview</b></p>
-      <p>In thinking about bike friendliness of a city, we often associate associate rideability with number of riders, distance travelled, road safety and infrastructure availability or the likes to decide whether a city is bike friendly or not. This exercise continues to investigate the underlying ridership of a city and uses simplified visual outputs to help users understand bike paths and associated infrastructure utilisation.</p>
+ <P><b>Project overview</b></p>
+      <p>
+        How much are willing to pay to cycle to work? As we live in a world with limited resources, everything we do and not do, has a cost. Therefore the decision of to cycle or not to cycle often depends on how much we are willing to pay. And this is what I want to show you in this presentation.</p>
 
-      <p>The first part of the visualisation (as shown in the animated maps) aims to measure the rideability of bike paths by using a weighted distance framework. It measures the possible number of trips entering Melbourne CBD based on a 20km threshold and discussion of the results will be provided in the results section. This aims to investigate the cost of travelling on a bicycle based on a number physical, topological, predictable and unpredictable factors. It also aims to predict the possible outcomes of that journey based on the implied assumptions. In general, journeys that are free from hussles of traffic and heavy vehicles improve people's willingness to ride therefore stimulating higher number of riders and demand for bike paths. Journeys that are elevated, have possible exposure to road hazards and air polution, are undesireable and generally perceived as being further than it may seem. These undesireable, poorly serviced areas simply flag the need for better infrastructure provision in order to meet growing demands.</p>
+        <p>If we assume that an average person is willing to pay the cost of 20kms to cycle to the CBD to work, then the shortest path map would reflect the approximate catchment of where people can cycle to work. However distance is not the only consideration when choosing cycling as a mode of transport. There are risk factors, opportunity costs, time costs, route difficulty, etc. that are taken into account. In order to estimate these costs, a number of datasets on the VicRoads open data portal were used to come up with a framework to model an approximate cost for people to cycle to work.</p>
 
-      <p>Ultimately, visualising trip distance and trip densities and trip locations helps authorities weigh out the costs and benefits of their investments and help them better prepare for the future.</p>
+      <p>The first part of the visualisation (as shown in the animated maps) aims to measure the rideability of bike paths by using a weighted distance framework. It measures the possible number of trips entering Melbourne CBD based on a 20km threshold. The second part of the visualisation serves as a exploratory data analysis tool to help users understand how much each sections of roads cost and potentially how much demand there is for each of these roads</p> 
 
-      <p>The second part of the visualisation drills down the details of the data that was driving the first part of the work. In this case the weighted cost is translated into a bike friendliness metric while the bike path demand was derived by observing the number of journeys intersecting with a particular segment of the road. It should be noted that the number of journeys are simply a function of decaying distance and/or weighted decaying distance and not an actual number of bike count. General research shows that for every 1km increase in distance, there is likely to be 2% or more riders for trips between 0-3km. For trips greater than 3km, the decaying distance relationship is 1% rider per 1km distance.<p>
+        <p>In simple terms, routes that are less favourable and have poor riding conditions are given a longer distance than it's actual distance on the ground. This is done by assigning a multiplier to each "cost" element such as historical bike crashes, traffic flows, bus lanes, etc, and multiplying physical distance by the total cost. Eventually a 5km bike ride for example, can become as far as 8 to 10 kms while areas located at the border of the 20km catchment actually cost more than its actual distance.</p>
+
+        <p>In general, journeys that are free from hussles of traffic and heavy vehicles improve people's willingness to ride therefore stimulating higher number of riders and demand for bike paths. Journeys that have higher difficulty levels, have possible exposure to road hazards and air polution, are undesireable and generally perceived as being further than it may seem. This analysis shows that if each of these costs elements are carefully planned, manipulated and elimnated from cyclists' journeys, they would in principle reduce the "distance" (or cost) of travelling by bicycle, attract a larger volume of riders and overall, expand the coverage of the bike-able catchment.</p>
+
 
  <P><b>Data and methods</b></p>
       <p>A total of 5 datasets were from VicRoads and 1 from Lands Victoria were used in to predict bike friendliness.
@@ -256,19 +294,19 @@
 <p>Results show that by removing traffic from roads, the city is able to attract more 1-3 km riders and possibly more riders from the North Eastern suburbs.</p>
 
 
-<p><b>Map 3</b> - Almost 60%-70% of the Metropolitan Area has access to the CBD within a 20 kilometre bike ride. That is if all roads were created flat and equal without obstruction of external traffic and hazards. I note that visuals for this scenario are quite skewed by the noise from the animation. However further investigation to the data showed that the network analysis was run correctly and  </p>
+<p><b>Map 3</b> - Almost 60%-70% of the Metropolitan Area has access to the CBD within a 20 kilometre bike ride. That is if all roads were created flat and equal without obstruction of external traffic and hazards. I note that visuals for this scenario are quite skewed by the noise from the animation. However further investigation to the data showed that the network analysis was run correctly</p>
 
-<p><b>Map 4</b> - This serves as a exploratary data analysis tool to help viewers understand more about the weighted distance results. In principal, each road node should have a distance or weighted distance metric defined by the user. The algorithm then searches for the nearest and cheapest node based on these distance metrics, and iterates through the dataset until it reaches a specified destination. This weighted distance result, translated into a bike friendliness result is particularly useful in detecting poor infrastructure utilisation along a road, possible redundancies and risks if unattended. 
+<p><b>Map 4</b> - This serves as a exploratary data analysis tool to help viewers understand more about the weighted distance results. In principal, each road node should have a distance or weighted distance metric defined by the user. The algorithm then searches for the nearest and cheapest node based on these distance metrics, and iterates through the dataset until it reaches a specified destination. This weighted distance result, translated into a bike friendliness result is particularly useful in detecting poor infrastructure utilisation along a road, possible redundancies and risks if unattended.</p>
 
-<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD. But since this analysis was done purely based on modelling assumptions, it would be beneficial to compare the results with real bike counts to determine whether the predictions were appropriately translated. </p>
+<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD. </p>
 
 <p><b>Credits</b></p>
 <p>Special thanks to</p>
 <p>MMQGIS for the animation tool http://michaelminn.com/linux/mmqgis/</p>
 <p>QGIS community for all the online tutorials</p>
-<p>PSQL, POSTGIS for making such a wonderful open source tool</p>
+<p>Postgres, POSTGIS, pgRouting community</p>
 <p>CartoDB for one-click mapping</p>
-<p>Data.Vic and Geonext for promoting awareness for open data</p>
+<p>DataVic and Geonext for continous support and innovation</p>
 
 <a href="http://www.sgsep.com.au/team/consultants/andie-yam/">About Me</a>
  or <a href="https://twitter.com/yamhochi">Tweet me @yamhochi</a>
