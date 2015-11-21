@@ -58,108 +58,56 @@
 
       }
 
-            #footer {
-                width: 100%;
-                height: auto;
-                padding-top: 12px; /*12*/
-                padding-bottom: 12px;
-                border-top: 1px solid #f0f0f0;
-                float:center;
-            }
+      #footer {
+          width: 100%;
+          height: auto;
+          padding-top: 12px; /*12*/
+          padding-bottom: 12px;
+          border-top: 1px solid #f0f0f0;
+          float:center;
+      }
 
-             #footerContent {
-                float:center;
-                margin: auto;
-                /*background-color: yellow;*/
-                width: 70%;
-                height: auto;
-                padding-left:10%;
-                padding-right: 10%;
-                padding-bottom: 50px;
-                font-family:'Roboto', sans-serif;   
-            }
+       #footerContent {
+          float:center;
+          margin: auto;
+          /*background-color: yellow;*/
+          width: 70%;
+          height: auto;
+          padding-left:10%;
+          padding-right: 10%;
+          padding-bottom: 50px;
+          font-family:'Roboto', sans-serif;   
+      }
 
-            div.headerLeft p{
-                /*font-size: 1em;*/
-                font-size:300%; 
-                color: #b94a48;
-            }
+      div.headerLeft p{
+          /*font-size: 1em;*/
+          font-size:300%; 
+          color: #b94a48;
+      }
 
-            div.footerContent p{
-                font-size:12px; 
-            }
+      div.footerContent p{
+          font-size:12px; 
+      }
 
      
     </style>
-
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
 </head>
 <body>
 
 	<!-- <div id="overlay" style="height: 50px;">.</div> -->
 <div id="header">
-  <div id="headerin" align="middle"><p><font size="5.5pt">Mapping Melbourne's Bike-ability</font></p></div>
+  <div id="headerin" align="middle"><p><font size="5.5pt">Every property in Melbourne since the 1900s</font></p></div>
 <!--   <div id="headerRight"><p><a href="https://twitter.com/yamhochi"><font color="#fff"size="3pt">@yamhochi</font></a></p></div> -->
 </div>
-<div id="gifs" align="middle" style="margin-top: 10px;">
-<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/1_base.gif" height="auto" width="70%" >
-<img class="shrinkToFit decoded" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/2_traffic2.gif" height="auto" width="70%" >
-<img class="decoded shrinkToFit" alt="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all.gif" src="https://dl.dropboxusercontent.com/u/13024394/geonext_submission/3_all2.gif" height="auto" width="70%">
+<div id="gifs" align="middle" style="margin-top: 0px;">
+<img class="decoded shrinkToFit" alt="http://yamhochi.github.io/every_property_melb/img/melb_animate.gif" src="http://yamhochi.github.io/every_property_melb/img/melb_animate.gif" height="auto" width="100%" >
 </div>
+<div id="footer">
+<div id="footerContent">
 
-<div id="map"></div>
-  <!-- <div id="ove rlay">.</div> -->
+<!-- <p stlye ="line-height: 5pt;"> -->
 
-<script type="infowindow/html" id="infowindow_template">
-<div class="cartodb-popup v2">
-  <a href="#close" class="cartodb-popup-close-button close">x</a>
-  <div class="cartodb-popup-content-wrapper">
-    <div class="cartodb-popup-content">
-      <h4>name</h4>
-      <p>{{name}}</p>
-    </div>
-  </div>
-  <div class="cartodb-popup-tip-container"></div>
-</div>
-</script>
-
-<script type="infowindow/html" id="infowindow_template">
-<div class="cartodb-tooltip-content-wrapper">
-  <div class="cartodb-tooltip-content">
-    <h4>name</h4>
-    <p>{{name}}</p>
-  </div>
-</div>
-</script>
-
-	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-	<script>
-  
-		window.onload = function(){
-            // var map = new L.Map('map', {
-            //     center: [-33.8650, 151.2094],
-            //     zoom: 8
-            //   });
-
-            var sql = new cartodb.SQL({ user: 'ay', format: 'geojson' });
-            cartodb.createVis(map,  'https://yamhochi.cartodb.com/api/v2/viz/405fd06a-4094-11e5-92df-0e853d047bba/viz.json')
-                // .addTo(map)
-                .on('done', function(vis, layers) {
-                  //do stuff
-                  //define sublayer
-                  var sublayer = layers[1].getSubLayer(0);
-                  var tz = layers[1].getSubLayer(1);
-                })
-              }
-
-
-	</script>
-  <div id="footer">
-  <div id="footerContent">
-
-    <p stlye ="line-height: 5pt;">
-
- <P><b>Project overview</b></p>
+ <!-- <P><b>Project overview</b></p>
       <p>
         How much are we willing to pay to cycle to work? As we live in a world with limited resources, everything we do and not do, has a cost. Therefore the decision of to cycle or not to cycle often depends on how much we are willing to pay. And this is what I want to show you in this presentation.</p>
 
@@ -196,9 +144,9 @@
 
 <p><b>Map 4</b> - This serves as a exploratary data analysis tool to help viewers understand more about the weighted distance results. In principal, each road node should have a distance or weighted distance metric defined by the user. The algorithm then searches for the nearest and cheapest node based on these distance metrics, and iterates through the dataset until it reaches a specified destination. This weighted distance result, translated into a bike friendliness result is particularly useful in detecting poor infrastructure utilisation along a road, possible redundancies and risks if unattended.</p>
 
-<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD. </p>
+<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD. </p> -->
 
-<p><b>Credits</b></p>
+<!-- <p><b>Credits</b></p>
 <p>Special thanks to</p>
 <p>MMQGIS for the animation tool http://michaelminn.com/linux/mmqgis/</p>
 <p>QGIS community for all the online tutorials</p>
@@ -207,10 +155,10 @@
 <p>DataVic and Geonext for continous support and innovation</p>
 
 <a href="http://www.sgsep.com.au/team/consultants/andie-yam/">About Me</a>
- or <a href="https://twitter.com/yamhochi">Tweet me @yamhochi</a>
+ or <a href="https://twitter.com/yamhochi">Tweet me @yamhochi</a> -->
 
-<!--     <p><a href="#"><font color="#92d050">Read more...</font></a></p> -->
-  </div>
+TBA
+</div>
 </div>
 </body>
 </html>
