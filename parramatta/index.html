@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--[if !IE]><script language="Javascript">
+alert ("It looks like you aren't using Internet Explorer. To see our site correctly, please use chrome, firefox or safari.")
+</script>
+<![endif]-->
+	<title>parra</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/bootstrap.css">
+    <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/slider.css"  >
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .list-group {
+	    position:absolute;
+	    left: 10px;
+	    top: 100px;
+	    width:250px;
+	    padding: 20px;
+	    /*background:rgba(255,255,255,0.7);*/
+	    z-index: 4;
+	  }
+
+		
+
+
+     </style>
+     <script type="cartocss/text" id="cartocss">
+	/** torque visualization */
+		 @input: 42;
+		 @weight: 1;
+
+	   Map {
+			-torque-frame-count:1;
+			-torque-animation-duration:1;
+			-torque-time-attribute:"time";
+			// -torque-aggregation-function:"("+@weight+"*(1+(("+ @input+"-avg(one_time))/(45-40))))+(3*(1+((7-avg(two_time))/(11-7))))";
+			-torque-aggregation-function:"avg(r3_hospital)+avg(r3_primaryschools)+avg(r3_railstation)+avg(r3_re1)+avg(r3_shoppingcentr)";
+			-torque-resolution:2;
+			-torque-data-aggregation:linear;
+		  }
+
+		 #test_sml{
+		      image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red);
+			  marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png");
+			  comp-op: multiply;
+			  marker-fill-opacity: 0.2;
+			  marker-line-color: #FFF;
+			  marker-line-width: 0;
+			  marker-line-opacity: 0.7;
+			  marker-type: ellipse;
+			  marker-width:[value];
+			  marker-fill: #FF9900;
+		}
+		#test_sml[frame-offset=1] {
+			  marker-width:7;
+			  marker-fill-opacity:0.45; 
+		}
+    </script>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <style></style>
+    <script type="text/javascript" src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.mod.torque.js" async=""></script>
+    
+</head>
+<body>
+	
+	
+
+<!-- 	<nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+	</div>
+	</nav> -->
+  	<ul class="list-group">
+  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="0" id="rail"><b></b></li>
+  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" id="shopping"><b></b></li>
+  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0" id="park"><b></b></li>
+  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="0" id="health"><b></b></li>
+  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="0" id="edu"><b></b></li>
+	</ul>
+  	
+
+	<div id="map"></div>
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
+	<script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>  
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script>
+
+
+      function main() {
+          var layer = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          });
+
+
+          var map = new L.map('map', {
+              scrollWheelZoom: false,
+              center: [-33.817716, 151.002566],
+	          zoom: 15,
+	          minZoom:4,
+	          maxZoom:15,
+          });
+
+          map.addLayer(layer);
+
+          var layerSource = {
+              type: 'torque',
+              options: {
+                  query: "select * from parra_grid",
+                  user_name: 'ay',
+                  table_name: 'parra_grid',
+                  cartocss: $("#cartocss").html()
+              }
+          }
+
+
+          function selectvalue(layer) {
+
+            window.value1=0 
+            window.value2=0
+            window.value3=0 
+            window.value4=0
+            window.value5=0 
+            var adjustedcss ='Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:[value]; marker-fill: #FF9900; }'
+            // var logstring = "value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5
+
+              $('#rail').slider()
+              .on('slideStop', function(ev){
+                window.value1=ev.value
+          	   	layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+            	   	// console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+          	   	})
+          	   .on('load', function(){
+           				 layer.play();
+      		    });
+
+
+              $('#shopping').slider()
+              .on('slideStop', function(ev2){
+                window.value2=ev2.value
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                  // console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                })
+               .on('load', function(){
+                   layer.play();
+              });
+              
+
+               $('#park').slider()
+              .on('slideStop', function(ev3){
+                window.value3=ev3.value
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                  // console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                })
+               .on('load', function(){
+                   layer.play();
+              });
+
+               $('#health').slider()
+              .on('slideStop', function(ev4){
+                window.value4=ev4.value
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                  console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                })
+               .on('load', function(){
+                   layer.play();
+              });
+
+               $('#edu').slider()
+              .on('slideStop', function(ev5){
+                window.value5=ev5.value
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                  console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                })
+               .on('load', function(){
+                   layer.play();
+              });
+          }
+
+          cartodb.createLayer(map, layerSource)
+            .addTo(map)
+            .on('done', function(layer) {
+		        //do stuff
+		        var torqueLayer = layer;
+
+                // once animation is loaded, automatically play     
+	            torqueLayer.on('load', function() {
+	                torqueLayer.play();
+	            });
+
+                // pause animation at last frame
+                torqueLayer.on('change:time', function(changes) {
+                    if (changes.step === torqueLayer.provider.getSteps() - 1) {
+                        torqueLayer.pause();
+                	}
+                });
+
+                selectvalue(torqueLayer);
+
+		    })
+		    .on('error', function(err) {
+		      alert("some error occurred: " + err);
+		    });	    
+      }
+      
+
+      window.onload = main;
+
+	</script>
+</body>
+</html>
