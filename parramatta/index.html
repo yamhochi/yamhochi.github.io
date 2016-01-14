@@ -5,7 +5,7 @@
 alert ("It looks like you aren't using Internet Explorer. To see our site correctly, please use chrome, firefox or safari.")
 </script>
 <![endif]-->
-	<title>parra</title>
+	<title>parra_inverse</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	
@@ -47,27 +47,64 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
 			-torque-animation-duration:1;
 			-torque-time-attribute:"time";
 			// -torque-aggregation-function:"("+@weight+"*(1+(("+ @input+"-avg(one_time))/(45-40))))+(3*(1+((7-avg(two_time))/(11-7))))";
-			-torque-aggregation-function:"avg(r3_hospital)+avg(r3_primaryschools)+avg(r3_railstation)+avg(r3_re1)+avg(r3_shoppingcentr)";
-			-torque-resolution:2;
+			// -torque-aggregation-function:"avg(r3_hospital)+avg(r3_primaryschools)+avg(r3_railstation)+avg(r3_re1)+avg(r3_shoppingcentr)";
+      -torque-aggregation-function:"(avg(r3_railstation)/(15-0))+(avg(r3_shoppingcentr)/(20-0))+(avg(r3_re1)/(5-0))+(avg(r3_primaryschools)/(13-0))+(avg(r3_hospital)/(9-0))";
+			-torque-resolution:4;
 			-torque-data-aggregation:linear;
 		  }
 
-		 #test_sml{
-		      image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red);
-			  marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png");
+		 #parra_grid{
+		    // image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red);
+			  // marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png");
 			  comp-op: multiply;
-			  marker-fill-opacity: 0.2;
+			  marker-fill-opacity: 0.1;
 			  marker-line-color: #FFF;
 			  marker-line-width: 0;
 			  marker-line-opacity: 0.7;
 			  marker-type: ellipse;
-			  marker-width:[value];
+			  // marker-width:[value];
+        marker-width:6;
 			  marker-fill: #FF9900;
 		}
-		#test_sml[frame-offset=1] {
+		#parra_grid[frame-offset=1] {
 			  marker-width:7;
 			  marker-fill-opacity:0.45; 
 		}
+
+    #parra_grid[value>=0.5] {
+       marker-fill: #a50026;
+    }
+    #parra_grid[value>=1] {
+       marker-fill: #d73027;
+    }
+    #parra_grid[value>=1.5] {
+       marker-fill: #f46d43;
+    }
+    #parra_grid[value>=2] {
+       marker-fill: #fdae61;
+    }
+    #parra_grid[value>=2.5] {
+       marker-fill: #fee090;
+    }
+    #parra_grid[value>=3] {
+       marker-fill: #e0f3f8;
+    }
+    #parra_grid[value>=3.5] {
+       marker-fill: #abd9e9;
+    }
+    #parra_grid[value>=4] {
+       marker-fill: #74add1;
+    }
+    #parra_grid[value>=4.5] {
+       marker-fill: #4575b4;
+    }
+    #parra_grid[value>=5] {
+       marker-fill: #313695;
+    }
+
+
+
+
     </script>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
     <style></style>
@@ -83,18 +120,18 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
 	</div>
 	</nav> -->
   	<ul class="list-group">
-  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="0" id="rail"><b></b></li>
-  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" id="shopping"><b></b></li>
-  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0" id="park"><b></b></li>
-  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="0" id="health"><b></b></li>
-  	<li class="list-group-item"><b></b><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="0" id="edu"><b></b></li>
+  	<li class="list-group-item"><p><b>Rail </b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="0" id="rail"><b></b></li>
+  	<li class="list-group-item"><p><b>Retail </b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" id="shopping"><b></b></li>
+  	<li class="list-group-item"><p><b>Open Space </b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0" id="park"><b></b></li>
+  	<li class="list-group-item"><p><b>Hospitals </b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="0" id="health"><b></b></li>
+  	<li class="list-group-item"><p><b>Primary Schools </b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="0" id="edu"><b></b></li>
 	</ul>
   	
 
 	<div id="map"></div>
 	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
 	<script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>  
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script>
@@ -134,14 +171,38 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
             window.value3=0 
             window.value4=0
             window.value5=0 
-            var adjustedcss ='Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:[value]; marker-fill: #FF9900; }'
+            function multiplier(val){
+              if (val==0){
+                return 0
+              }else{
+                return 1
+              }
+            }
+            console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+            
+
+            // var multiplier = function(value1){
+            //   if (value1=0){
+            //     return 0
+            //   }else{
+            //     return 1
+            //   }
+            // }
+
+             
+            console.log(value2)
+
+            // var adjustedcss ='Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #parra_grid{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:[value]; marker-fill: #FF9900; }'
             // var logstring = "value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5
 
               $('#rail').slider()
               .on('slideStop', function(ev){
                 window.value1=ev.value
-          	   	layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
-            	   	// console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+          	   	window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"('+multiplier(value1)+'*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*(1+(('+value5+'-avg(r3_hospital))/(9-0))))/'+turned_on+'"; -torque-resolution:2;-torque-data-aggregation:linear; } #parra_grid{comp-op: multiply; marker-fill-opacity: 0.1; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid[value>=0.2] {marker-fill: #a50026; } #parra_grid[value>=0.4] {marker-fill: #d73027; } #parra_grid[value>=0.6] {marker-fill: #f46d43; } #parra_grid[value>=0.8] {marker-fill: #fdae61; } #parra_grid[value>=1] {marker-fill: #fee090; } #parra_grid[value>=1.2] {marker-fill: #e0f3f8; } #parra_grid[value>=1.4] {marker-fill: #abd9e9; } #parra_grid[value>=1.6] {marker-fill: #74add1; } #parra_grid[value>=1.8] {marker-fill: #4575b4; } #parra_grid[value>=2] {marker-fill: #313695; }}') 
+                console.log(multiplier(value1))
+                console.log(turned_on+'turned on')
           	   	})
           	   .on('load', function(){
            				 layer.play();
@@ -151,8 +212,11 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
               $('#shopping').slider()
               .on('slideStop', function(ev2){
                 window.value2=ev2.value
-                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"('+multiplier(value1)+'*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*(1+(('+value5+'-avg(r3_hospital))/(9-0))))/'+turned_on+'"; -torque-resolution:2;-torque-data-aggregation:linear; } #parra_grid{comp-op: multiply; marker-fill-opacity: 0.1; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid[value>=0.2] {marker-fill: #a50026; } #parra_grid[value>=0.4] {marker-fill: #d73027; } #parra_grid[value>=0.6] {marker-fill: #f46d43; } #parra_grid[value>=0.8] {marker-fill: #fdae61; } #parra_grid[value>=1] {marker-fill: #fee090; } #parra_grid[value>=1.2] {marker-fill: #e0f3f8; } #parra_grid[value>=1.4] {marker-fill: #abd9e9; } #parra_grid[value>=1.6] {marker-fill: #74add1; } #parra_grid[value>=1.8] {marker-fill: #4575b4; } #parra_grid[value>=2] {marker-fill: #313695; }}') 
                   // console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                  console.log(multiplier(value1)+','+multiplier(value2)+','+multiplier(value3)+','+multiplier(value4)+','+multiplier(value5))
+                  console.log(turned_on+'turned on')
                 })
                .on('load', function(){
                    layer.play();
@@ -162,8 +226,10 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
                $('#park').slider()
               .on('slideStop', function(ev3){
                 window.value3=ev3.value
-                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"('+multiplier(value1)+'*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*(1+(('+value5+'-avg(r3_hospital))/(9-0))))/'+turned_on+'"; -torque-resolution:2;-torque-data-aggregation:linear; } #parra_grid{comp-op: multiply; marker-fill-opacity: 0.1; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid[value>=0.2] {marker-fill: #a50026; } #parra_grid[value>=0.4] {marker-fill: #d73027; } #parra_grid[value>=0.6] {marker-fill: #f46d43; } #parra_grid[value>=0.8] {marker-fill: #fdae61; } #parra_grid[value>=1] {marker-fill: #fee090; } #parra_grid[value>=1.2] {marker-fill: #e0f3f8; } #parra_grid[value>=1.4] {marker-fill: #abd9e9; } #parra_grid[value>=1.6] {marker-fill: #74add1; } #parra_grid[value>=1.8] {marker-fill: #4575b4; } #parra_grid[value>=2] {marker-fill: #313695; }}')  
                   // console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                  console.log(turned_on+'turned on')
                 })
                .on('load', function(){
                    layer.play();
@@ -172,8 +238,10 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
                $('#health').slider()
               .on('slideStop', function(ev4){
                 window.value4=ev4.value
-                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"('+multiplier(value1)+'*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*(1+(('+value5+'-avg(r3_hospital))/(9-0))))/'+turned_on+'"; -torque-resolution:2;-torque-data-aggregation:linear; } #parra_grid{comp-op: multiply; marker-fill-opacity: 0.1; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid[value>=0.2] {marker-fill: #a50026; } #parra_grid[value>=0.4] {marker-fill: #d73027; } #parra_grid[value>=0.6] {marker-fill: #f46d43; } #parra_grid[value>=0.8] {marker-fill: #fdae61; } #parra_grid[value>=1] {marker-fill: #fee090; } #parra_grid[value>=1.2] {marker-fill: #e0f3f8; } #parra_grid[value>=1.4] {marker-fill: #abd9e9; } #parra_grid[value>=1.6] {marker-fill: #74add1; } #parra_grid[value>=1.8] {marker-fill: #4575b4; } #parra_grid[value>=2] {marker-fill: #313695; }}') 
                   console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                  console.log(turned_on+'turned on')
                 })
                .on('load', function(){
                    layer.play();
@@ -182,8 +250,10 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
                $('#edu').slider()
               .on('slideStop', function(ev5){
                 window.value5=ev5.value
-                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(1*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+(1*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+(1*(1+(('+value3+'-avg(r3_re1))/(5-0))))+(1*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+(1*(1+(('+value5+'-avg(r3_hospital))/(9-0))))"; -torque-resolution:2; -torque-data-aggregation:linear; } #test_sml{image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red); marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png"); comp-op: multiply; marker-fill-opacity: 0.2; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:2*[value]; marker-fill: #FF9900; }')
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"('+multiplier(value1)+'*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*(1+(('+value5+'-avg(r3_hospital))/(9-0))))/'+turned_on+'"; -torque-resolution:2;-torque-data-aggregation:linear; } #parra_grid{comp-op: multiply; marker-fill-opacity: 0.1; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid[value>=0.2] {marker-fill: #a50026; } #parra_grid[value>=0.4] {marker-fill: #d73027; } #parra_grid[value>=0.6] {marker-fill: #f46d43; } #parra_grid[value>=0.8] {marker-fill: #fdae61; } #parra_grid[value>=1] {marker-fill: #fee090; } #parra_grid[value>=1.2] {marker-fill: #e0f3f8; } #parra_grid[value>=1.4] {marker-fill: #abd9e9; } #parra_grid[value>=1.6] {marker-fill: #74add1; } #parra_grid[value>=1.8] {marker-fill: #4575b4; } #parra_grid[value>=2] {marker-fill: #313695; }}')  
                   console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                  console.log(turned_on+'turned on')
                 })
                .on('load', function(){
                    layer.play();
