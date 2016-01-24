@@ -363,15 +363,18 @@ h1, h2, h3, h4, h5, h6 {
             margin-top: 1.8em;
         }
 
-.footer { /* On body > .container > div */
-    background-color: #C04384;
+        .list-unstyled{padding-left:0;list-style:none}
+        .text-muted{color:#777}
+
+/*.footer {  On body > .container > div */
+/*    background-color: #C04384;
     border-top: solid 0.5em #843860;
     bottom: 0;
     height: 13em;
     position: absolute;
-    width: 100%;
-    }
-    .footer a {
+    width: 100%;*/
+    /*}*/
+    /*.footer a {
         color: white;
         }
         .footer a:hover {
@@ -386,8 +389,8 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 40em;
         min-width: 20em;
         padding: 2em 2em 0.5em;
-        }
-        .footer div {
+        }*/
+       /* .footer div {
             float: left;
             width: 33%;
             }
@@ -408,18 +411,18 @@ h1, h2, h3, h4, h5, h6 {
                 margin: 0;
                 padding: 0;
                 padding-left: 1em;
-            }
-            .footer div li {
+            }*/
+            /*.footer div li {
                 font-size: 0.8em;
                 padding: 0.3em 0;
-            }
-        .footer p.disclaimer {
+            }*/
+       /* .footer p.disclaimer {
             clear: both;
             font-family: Arial, sans-serif;
             font-size: 0.6em;
             margin: 0;
             padding-top: 2em;
-        }
+        }*/
 
 
 /* ========== My media queries ========== */
