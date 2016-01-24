@@ -58,7 +58,8 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
 			-torque-time-attribute:"time";
 			// -torque-aggregation-function:"("+@weight+"*(1+(("+ @input+"-avg(one_time))/(45-40))))+(3*(1+((7-avg(two_time))/(11-7))))";
 			// -torque-aggregation-function:"avg(r3_hospital)+avg(r3_primaryschools)+avg(r3_railstation)+avg(r3_re1)+avg(r3_shoppingcentr)";
-      -torque-aggregation-function:"(avg(r3_railstation)/(15-0))+(avg(r3_shoppingcentr)/(20-0))+(avg(r3_re1)/(5-0))+(avg(r3_primaryschools)/(13-9))+(avg(r3_hospital)/(9-0))*3";
+      			// -torque-aggregation-function:"(avg(r3_railstation)/(15-0))+(avg(r3_shoppingcentr)/(20-0))+(avg(r3_re1)/(5-0))+(avg(r3_primaryschools)/(13-9))+(avg(r3_hospital)/(9-0))*3";
+      			-torque-aggregation-function:"(avg(r3_primaryschools)/(13-9))";
 			-torque-resolution:8;
 			-torque-data-aggregation:linear;
 		  }
@@ -133,7 +134,7 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
   	<li class="list-group-item"><p><b>Rail </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="1" id="rail"><div id="v1"><b></b></div></li>
   	<li class="list-group-item"><p><b>Retail </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" id="shopping"><div id="v2"><b></b></div></li>
 <!--   	<li class="list-group-item"><p><b>Open Space </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="1" id="park"><div id="v3"><b></b></div></li> -->
-  	<li class="list-group-item"><p><b>Hospitals </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="1" id="health"><div id="v4"><b></b></div></li>
+  	<li class="list-group-item"><p><b>Hospitals </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="9" id="health"><div id="v4"><b></b></div></li>
   	<li class="list-group-item"><p><b>Primary Schools </b></p><input type="text" class="span2" value="1" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="1" id="edu"><div id="v5"><b></b></div></li>
 	</ul>
   	
