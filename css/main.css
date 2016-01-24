@@ -364,6 +364,8 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         .list-unstyled{padding-left:0;list-style:none}
+        .list-inline{padding-left:0;margin-left:-5px;list-style:none}
+        .list-inline>li{display:inline-block;padding-right:5px;padding-left:5px}
         .text-muted{color:#777}
 
 /*.footer {  On body > .container > div */
