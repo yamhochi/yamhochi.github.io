@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 20em;
     padding: 2em;
     padding-top: 3.5em; /* Height of header + 1em */
-    padding-bottom: 15em; /* Height of footer + 2em */
+    padding-bottom: 1em; /* Height of footer + 2em */
     }
     .content h1 {
         line-height: 1.2em;
@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
     }
     .content {
-        /*padding-bottom: 13em; /* -2 em */ */
+        /*padding-bottom: 13em; /* -2 em */ 
     }
     /*.footer {*/
         /*height: 11em; */
