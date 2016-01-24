@@ -5,20 +5,20 @@
 alert ("It looks like you aren't using Internet Explorer. To see our site correctly, please use chrome, firefox or safari.")
 </script>
 <![endif]-->
-	<title>parra_suitability</title>
-	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
+  <title>parra_suitability</title>
+  <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   <!-- <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/bootstrap.css"> -->
-  <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/slider.css"  >
+  <link rel="stylesheet" href="http://yamhochi.github.io/css/slider.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-	<style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <style>
       html, body, #map {
         height: 100%;
         padding: 0;
@@ -32,14 +32,14 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
       }
 
       .list-group {
-	    position:absolute;
-	    left: 10px;
-	    top: 100px;
-	    width:250px;
-	    padding: 20px;
-	    /*background:rgba(255,255,255,0.7);*/
-	    z-index: 4;
-	  }
+      position:absolute;
+      left: 10px;
+      top: 100px;
+      width:250px;
+      padding: 20px;
+      /*background:rgba(255,255,255,0.7);*/
+      z-index: 4;
+    }
 
     .popover{     
       width:500px;
@@ -48,33 +48,33 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
 
      </style>
      <script type="cartocss/text" id="cartocss">
-	/** torque visualization */
-		 @input: 42;
-		 @weight: 1;
+  /** torque visualization */
+     @input: 42;
+     @weight: 1;
 
-	   Map {
-			-torque-frame-count:1;
-			-torque-animation-duration:1;
-			-torque-time-attribute:"time";
+     Map {
+      -torque-frame-count:1;
+      -torque-animation-duration:1;
+      -torque-time-attribute:"time";
       -torque-aggregation-function: "((1*(avg(r3_railstation)/(15-5)))+(1*(avg(r3_shoppingcentr)/(20-0)))+(1*(avg(r3_re1)/(5-0)))+(1*(avg(r3_hospital)/(13-0)))+(1*(avg(r3_primaryschools)/(9-8))))*10/5";
       // "(avg(r3_railstation)/(15-1))+(avg(r3_shoppingcentr)/(20-1))+(avg(r3_re1)/(5-1))+(avg(r3_primaryschools)/(13-1))+(avg(r3_hospital)/(9-1))"
-			-torque-resolution:8;
-			-torque-data-aggregation:linear;
-		  }
+      -torque-resolution:8;
+      -torque-data-aggregation:linear;
+      }
 
-		 #parra_grid2{
-		    // image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red);
-			  // marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png");
-			  comp-op: lighter;
-			  marker-fill-opacity: 0.7;
-			  marker-line-color: #FFF;
-			  marker-line-width: 0;
-			  marker-line-opacity: 0.7;
-			  marker-type: ellipse;
-			  // marker-width:[value];
+     #parra_grid2{
+        // image-filters: colorize-alpha(cyan, lightgreen, yellow , orange, red);
+        // marker-file: url("http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png");
+        comp-op: lighter;
+        marker-fill-opacity: 0.7;
+        marker-line-color: #FFF;
+        marker-line-width: 0;
+        marker-line-opacity: 0.7;
+        marker-type: ellipse;
+        // marker-width:[value];
         marker-width:6;
-			  marker-fill: #FF9900;
-		}
+        marker-fill: #FF9900;
+    }
 
 #parra_grid2[value>=1] {marker-fill: #800026; } 
 #parra_grid2[value>=2] {marker-fill: #bd0026; } 
@@ -97,8 +97,8 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
     
 </head>
 <body>
-	
-<!-- 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  
+<!--  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
 </button -->
 
@@ -131,22 +131,22 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
     </div>
 
 
-  	<ul class="list-group">
-  	<li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Access to rail stations is critical in the location of strategic centres to ensure highest levels of accessibility, encouraging multi-purpose trips whilst reducing need for cars">Rail</a></b></p><input type="text" class="span2" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="rail"><div id="v1"><b></b></div></li> 
+    <ul class="list-group">
+    <li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Access to rail stations is critical in the location of strategic centres to ensure highest levels of accessibility, encouraging multi-purpose trips whilst reducing need for cars">Rail</a></b></p><input type="text" class="span2" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="rail"><div id="v1"><b></b></div></li> 
     <li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Critical as it forms the core of a strategic centre">Retail </a></b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="shopping"><div id="v2"><b></b></li>
-  	<li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Proximity to public open space does not influence the location of strategic centres due to their need to be surrounded by density">Open Space </a></b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="park"><div id="v3"><b></b></li> 
+    <li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Proximity to public open space does not influence the location of strategic centres due to their need to be surrounded by density">Open Space </a></b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="park"><div id="v3"><b></b></li> 
     <li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Hospitals have some influence on the location of centres as they may provide ancillary services supporting a hospital. A large working population is also likely to require access to hospital services">Hospitals </a></b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="health"><div id="v4"><b></b></li> 
     <li class="list-group-item"><p><b><a href="#" data-toggle="popover" data-trigger="focus" data-content="Desirable to cluster activities with this CLU including schools but not critical">Primary Schools </a></b></p><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="hide" id="edu"><div id="v5"><b></b></li>
-	</ul>
-  	
+  </ul>
+    
   <div id="map"></div>
   <!-- Modal -->
-	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
-	<script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>  
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script>
+  <script src="http://yamhochi.github.io/js/bootstrap-slider.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script>
 
       
       function main() {
@@ -164,9 +164,9 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
           var map = new L.map('map', {
               scrollWheelZoom: false,
               center: [-33.817716, 151.002566],
-	          zoom: 14,
-	          minZoom:11,
-	          maxZoom:15,
+            zoom: 14,
+            minZoom:11,
+            maxZoom:15,
           });
 
           map.addLayer(layer);
@@ -222,10 +222,10 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
                 layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(('+value1+'*(avg(r3_railstation)/(15-0)))+('+value2+'*(avg(r3_shoppingcentr)/(20-0)))+('+value3+'*(avg(r3_re1)/(5-0)))+('+value4+'*(avg(r3_hospital)/(13-0)))+('+value5+'*(avg(r3_primaryschools)/(9-0))))*10/'+total_weights+'"; -torque-resolution:8;-torque-data-aggregation:linear; } #parra_grid2{comp-op: lighter; marker-fill-opacity: 0.7; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:6; marker-fill: #FF9900;  #parra_grid2[value>=1] {marker-fill: #800026; } #parra_grid2[value>=2] {marker-fill: #bd0026; } #parra_grid2[value>=3] {marker-fill: #e31a1c; } #parra_grid2[value>=4] {marker-fill: #fc4e2a; } #parra_grid2[value>=5] {marker-fill: #fd8d3c; } #parra_grid2[value>=6] {marker-fill: #feb24c; } #parra_grid2[value>=7] {marker-fill: #fed976; } #parra_grid2[value>=8] {marker-fill: #ffeda0; } #parra_grid2[value>=9] {marker-fill: #ffffcc; } #parra_grid2[value>=10] {marker-fill: #f7fcf0; }}') 
                 console.log(turned_on+'turned on')
                 // document.getElementById('v1').innerHTML=value1
-          	   	})
-          	   .on('load', function(){
-           				 layer.play();
-      		    });
+                })
+               .on('load', function(){
+                   layer.play();
+              });
 
 
               $('#shopping').slider()
@@ -288,32 +288,32 @@ alert ("It looks like you aren't using Internet Explorer. To see our site correc
           cartodb.createLayer(map, layerSource)
             .addTo(map)
             .on('done', function(layer) {
-		        //do stuff
-		        var torqueLayer = layer;
+            //do stuff
+            var torqueLayer = layer;
 
                 // once animation is loaded, automatically play     
-	            torqueLayer.on('load', function() {
-	                torqueLayer.play();
-	            });
+              torqueLayer.on('load', function() {
+                  torqueLayer.play();
+              });
 
                 // pause animation at last frame
                 torqueLayer.on('change:time', function(changes) {
                     if (changes.step === torqueLayer.provider.getSteps() - 1) {
                         torqueLayer.pause();
-                	}
+                  }
                 });
 
                 selectvalue(torqueLayer);
 
-		    })
-		    .on('error', function(err) {
-		      alert("some error occurred: " + err);
-		    });	    
+        })
+        .on('error', function(err) {
+          alert("some error occurred: " + err);
+        });     
       }
       
 
       window.onload = main;
 
-	</script>
+  </script>
 </body>
 </html>
