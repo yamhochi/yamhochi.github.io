@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Parramatta Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/slider.css" >
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style>
+      /*html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }*/
+
+      #map {
+        /*top: 50px;*/
+        height: calc(100vh - 50px) ;
+        padding: 0;
+        margin: 0;
+      }
+
+      .slide ,.dropdowntext{
+        padding: 10px 20px 10px 20px;
+        /*padding-top: 10px;*/
+      }
+
+      /*.dropdowntext{
+        paddint
+      }*/
+
+      small {
+            color: white;
+        }
+
+      
+      </style>
+      <script type="cartocss/text" id="cartocss">
+    /** torque visualization */
+
+       Map {
+            -torque-frame-count:1;
+            -torque-animation-duration:1;
+            -torque-time-attribute:"time";
+            -torque-aggregation-function:"(avg(r3_railstation)/(15-0))+(avg(r3_shoppingcentr)/(20-0))+(avg(r3_re1)/(5-0))+(avg(r3_primaryschools)/(13-0))+(avg(r3_hospital)/(9-0))";
+            -torque-resolution:8;
+            -torque-data-aggregation:linear;
+          }
+
+         #parra_grid2{
+              comp-op: multiply;
+              marker-fill-opacity: 0.6;
+              marker-line-color: #FFF;
+              marker-line-width: 0;
+              marker-line-opacity: 0.7;
+              marker-type: ellipse;
+              marker-width:4;
+              marker-fill: #FF9900;
+        }
+        #parra_grid2[frame-offset=1] {
+              marker-width:7;
+              marker-fill-opacity:0.45; 
+        }
+
+        #parra_grid2[value>=0.5] {
+               marker-fill: #a50026;
+            }
+            #parra_grid2[value>=1] {
+               marker-fill: #d73027;
+            }
+            #parra_grid2[value>=1.5] {
+               marker-fill: #f46d43;
+            }
+            #parra_grid2[value>=2] {
+               marker-fill: #fdae61;
+            }
+            #parra_grid2[value>=2.5] {
+               marker-fill: #fee090;
+            }
+            #parra_grid2[value>=3] {
+               marker-fill: #e0f3f8;
+            }
+            #parra_grid2[value>=3.5] {
+               marker-fill: #abd9e9;
+            }
+            #parra_grid2[value>=4] {
+               marker-fill: #74add1;
+            }
+            #parra_grid2[value>=4.5] {
+               marker-fill: #4575b4;
+            }
+            #parra_grid2[value>=5] {
+               marker-fill: #313695;
+        }
+
+
+
+
+    </script>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <!-- /*<style></style>*/ -->
+    <script type="text/javascript" src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.mod.torque.js" async=""></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SGS Economics and Planning</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About This Map<b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <!-- <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span> -->
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <!-- <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p> -->
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li> -->
+                    </ul>
+                </li>
+               <!--  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul> -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <!-- <div class="navbar-brand" align="center"><center>I want to be</center></div> -->
+                    <li class="list">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo1" align="center"><u id="valueone" font size="2em">0</u> minutes from<br> Train Stations<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="0" id="rail"></div>
+                        <ul id="demo1" class="collapse">
+                            <div class="dropdowntext"><small>Access to rail stations is critical in the location of strategic centres to ensure highest levels of accessibility, encouraging multi-purpose trips whilst reducing need for cars</small></div>
+                        </ul>
+                    </li>                    
+                    <li class="list">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2" align="center"><u id="valuetwo" font size="2em">0</u> minutes from<br> Shopping Centres<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" id="shopping"></div>
+                        <ul id="demo2" class="collapse">
+                            <div class="dropdowntext"><small>Critical as it forms the core of a strategic centre</small></div>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-edit"></i> Open Space<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0" id="park"></div>
+                        <ul id="demo3" class="collapse">
+                            <div class="dropdowntext"><small>Proximity to public open space does not influence the location of strategic centres due to their need to be surrounded by density</small></div>
+                        </ul>
+                    </li> -->
+                    <li class="list">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo4" align="center"><u id="valuefour" font size="2em">0</u> minutes from<br> Schools<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="0" id="health"></div>
+                        <ul id="demo4" class="collapse">
+                            <div class="dropdowntext"><small>Desirable to cluster activities with this CLU including schools but not critical</small></div>
+                        </ul>
+                    </li>
+                    <li  class="list">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo5" align="center"><u id="valuefive" font size="2em">0</u> minutes from<br> Hospitals<i class="fa fa-fw fa-caret-down"></i></a><div class="slide disabled"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="0" id="edu"></div>
+                        <ul id="demo5" class="collapse">
+                            <div class="dropdowntext"><small>Hospitals have some influence on the location of centres as they may provide ancillary services supporting a hospital. A large working population is also likely to require access to hospital services</small></div>
+                        </ul>
+                    </li>
+                    <!-- <li class="disabled">
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- <div id="page-wrapper"> -->
+            <div id="map">xxx</div>
+            
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <!-- For slider -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
+    <script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>
+
+    <script>
+    function main() {
+          // var layer = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+              // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          // });
+          var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+              attribution: '<a href="http://www.sgsep.com.au/">Made By SGS Economics & Planning</a> ;&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          });
+
+
+          var map = new L.map('map', {
+              scrollWheelZoom: false,
+              center: [-33.819716, 151.03],
+                zoom: 13,
+                cartodb_logo: false,
+            // minZoom:13,
+            // maxZoom:13,
+          });
+
+          // map.dragging.disable();
+
+          map.addLayer(layer);
+
+          var layerSource = {
+              type: 'torque',
+              options: {
+                  query: "select * from parra_grid2",
+                  user_name: 'ay',
+                  table_name: 'parra_grid2',
+                  cartocss: $("#cartocss").html()
+              }
+          }
+
+
+          function selectvalue(layer) {
+
+            window.value1=0 
+            window.value2=0
+            window.value3=0 
+            window.value4=0
+            window.value5=0 
+            function multiplier(val){
+              if (val==0){
+                return 0
+              }else{
+                return 1
+              }
+            }
+            console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+            
+             $('.slides').slider().on('slideStop', function(){
+            // $('.slides').slider()
+                // console.log(evt.value)
+                console.log(LayerActions[$(this).attr('id')]());
+                console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
+                LayerActions[$(this).attr('id')]()
+                console.log($(this).attr('id'))
+
+                
+                window.turned_on=multiplier(value1)+multiplier(value2)+multiplier(value3)+multiplier(value4)+multiplier(value5)
+                layer.setCartoCSS('Map {-torque-frame-count:1; -torque-animation-duration:1; -torque-time-attribute:"time"; -torque-aggregation-function:"(('+multiplier(value1)+'*10*(1+(('+value1+'-avg(r3_railstation))/(15-0))))+('+multiplier(value2)+'*10*(1+(('+value2+'-avg(r3_shoppingcentr))/(20-0))))+('+multiplier(value3)+'*10*(1+(('+value3+'-avg(r3_re1))/(5-0))))+('+multiplier(value4)+'*10*(1+(('+value4+'-avg(r3_primaryschools))/(13-0))))+('+multiplier(value5)+'*10*(1+(('+value5+'-avg(r3_hospital))/(9-0)))))/'+turned_on+'"; -torque-resolution:8;-torque-data-aggregation:linear; } #parra_grid2{comp-op: multiply; marker-fill-opacity: 0.6; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0.7; marker-type: ellipse; marker-width:4; marker-fill: #FF9900;  #parra_grid2[value>=2] {marker-fill: #a50026; } #parra_grid2[value>=4] {marker-fill: #d73027; } #parra_grid2[value>=6] {marker-fill: #f46d43; } #parra_grid2[value>=8] {marker-fill: #fdae61; } #parra_grid2[value>=10] {marker-fill: #fee090; } #parra_grid2[value>=12] {marker-fill: #e0f3f8; } #parra_grid2[value>=14] {marker-fill: #abd9e9; } #parra_grid2[value>=16] {marker-fill: #74add1; } #parra_grid2[value>=18] {marker-fill: #4575b4; } #parra_grid2[value>=20] {marker-fill: #313695; }}') 
+                  console.log(turned_on+'turned on')
+                  console.log(multiplier(value1)+','+multiplier(value2)+','+multiplier(value3)+','+multiplier(value4)+','+multiplier(value5))
+                })
+               .on('load', function(){
+                   layer.play();
+              });
+           }
+           // var LayerList= {rail:value1}
+           var LayerActions={
+                   rail: function(){
+                      window.value1=$('#rail').data('slider').getValue();
+                      document.getElementById('valueone').innerHTML=value1
+                      return true
+
+                        // })
+                    },
+                    shopping: function(){
+                      window.value2=$('#shopping').data('slider').getValue();
+                      document.getElementById('valuetwo').innerHTML=value2
+                      return true;
+                    },
+                    health: function(){
+                      window.value4=$('#health').data('slider').getValue();
+                      document.getElementById('valuefour').innerHTML=value4
+                      return true;
+                    },
+                    edu: function(){
+                      window.value5=$('#edu').data('slider').getValue();
+                      document.getElementById('valuefive').innerHTML=value5
+                      return true;
+                    },
+          }
+         
+
+          cartodb.createLayer(map, layerSource)
+            .addTo(map)
+            .on('done', function(layer) {
+                //do stuff
+                var torqueLayer = layer;
+
+                // once animation is loaded, automatically play     
+                torqueLayer.on('load', function() {
+                    torqueLayer.play();
+                });
+
+                // pause animation at last frame
+                torqueLayer.on('change:time', function(changes) {
+                    if (changes.step === torqueLayer.provider.getSteps() - 1) {
+                        torqueLayer.pause();
+                    }
+                });
+
+                selectvalue(torqueLayer);
+               var choropleth = new cdb.geo.ui.Legend({
+                   type: "choropleth",
+                   data: [
+                     { value: "Poor" },
+                     { value: "High" },
+                     // { name: "color1", value: "#F00" },
+                     // { name: "color2", value: "#0F0" },
+                     // { name: "color3", value: "#00F" }
+                     {name: "color1", value: "#a50026" },
+                     {name: "color2", value: "#d73027" },
+                     {name: "color3", value: "#f46d43" },
+                     {name: "color4", value: "#fdae61" },
+                     {name: "color5", value: "#fee090" },
+                     {name: "color6", value: "#e0f3f8" },
+                     {name: "color7", value: "#abd9e9" },
+                     {name: "color8", value: "#74add1" },
+                     {name: "color9", value: "#4575b4" },
+                     {name: "color10", value: "#313695" }
+
+                   ]
+                 });
+         $('#map').append(choropleth.render().el);
+            })//close on
+            .on('error', function(err) {
+              alert("some error occurred: " + err);
+            });   
+            var topLayer = new L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png', {
+                  maxZoom: 17
+                }).addTo(map);
+                topLayer.setZIndex(7);  
+
+      }
+
+      window.onload = main;
+      </script>
+
+
+</body>
+
+</html>
