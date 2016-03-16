@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Land Use</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/slider.css" >
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style>
+      /*html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }*/
+
+      #map {
+        /*top: 50px;*/
+        height: calc(100vh - 50px) ;
+        padding: 0;
+        margin: 0;
+      }
+
+      .slide ,.dropdowntext{
+        padding: 0px 20px 0px 20px;
+        /*padding-top: 10px;*/
+      }
+
+      
+
+      .list-group {
+        position:absolute;
+        left: 50px;
+        top: calc(20% + 300px);
+        width:auto;
+        padding: 20px;
+        background:rgba(255,255,255,0.8);
+        /*z-index: 4;*/
+      }
+
+      .list-group-item{
+         background:rgba(255,255,255,0.0);
+         /*width:100%;*/
+      }
+
+      #time {
+        opacity:1;
+        /*width:67%;*/
+
+      }
+
+      .btn-group-vertical{
+        position:absolute;
+        left: 50px;
+        top: 20%;
+        /*z-index:3;*/
+        opacity:0.8;
+      }
+      .ll.selected{
+        background:red;
+      }
+      .btn{
+        .selected;
+      }
+
+      small {
+            color: white;
+        }
+
+    a{
+        color: #fff;
+    }
+/*
+    <ul class="nav navbar-nav side-nav">
+                    <li class="list" id="lg1">*/
+    ul.nav navbar-nav side-nav li.active a {
+        color: red !important;
+    }
+      
+      </style>
+     
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <!-- /*<style></style>*/ -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SGS Economics and Planning</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About this map<b class="caret"></b></a>
+                    <!-- <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul> -->
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="list" id="lg1">
+                        <a href="#" style="background:#08306b; color:white">Low Growth-Business As Usual</a>
+                    </li>
+                    <li class="list" id="lg2">
+                        <a href="#" style="background:#08519c; color:white">Low Growth-Consolidated</a>
+                    </li>
+                    <li class="list" id="lg3">
+                        <a href="#" style="background:#2171b5; color:white">Low Growth-Expansion</a>
+                    </li>
+                    <li class="list" id="mg2">
+                        <a href="#" style="background:#00441b; color:white">Medium Growth-Business As Usual</a>
+                    </li>
+                    <li class="list" id="mg2">
+                        <a href="#" style="background:#006d2c; color:white">Medium Growth-Consolidated</a>
+                    </li>
+                    <li class="list" id="mg3">
+                        <a href="#" style="background:#238b45; color:white">Medium Growth-Expansion</a>
+                    </li>
+                    <li class="list" id="hg1">
+                        <a href="#" style="background:#cc4c02; color:white">High Growth-Business As Usual</a>
+                    </li>
+                    <li class="list" id="hg2">
+                        <a href="#" style="background:#ec7014; color:white">High Growth-Consolidated</a>
+                    </li>
+                    <li class="list" id="hg3">
+                        <a href="#" style="background:#fe9929; color:white">High Growth-Expansion</a>
+                    </li>
+                    <li class="ll">
+                        <a href="#" style="color:white"><div id=year>2016</div></a><div class="slide"><input type="text" class="span2" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" id="time"></div>
+                    </li>
+                    <!-- <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- <div id="page-wrapper"> -->
+            <div id="map"></div>
+            
+            <!-- <div class="container-fluid"> -->
+                
+                
+
+                <!-- Page Heading -->
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-lg-12"> -->
+                       <!--  <h1 class="page-header">
+                            Blank Page
+                            <small>Subheading</small>
+                        </h1> -->
+                        <!-- <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> Blank Page
+                            </li>
+                        </ol> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- /.row -->
+
+
+            <!-- </div> -->
+            <!-- /.container-fluid -->
+
+        <!-- </div> -->
+        <!-- /#page-wrapper -->
+        
+
+    <!-- </div> -->
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <!-- For slider -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
+    <script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>
+
+    <script>
+    function main(){
+            window.years = [2016,2021,2031,2046]
+            thisyear = 2016
+
+            var sql = new cartodb.SQL({ user: 'ay' });
+            cartodb.createVis(map,  'https://sgsep.cartodb.com/u/ay/api/v2/viz/8e7b7afc-ceeb-11e5-a94e-0ea31932ec1d/viz.json')
+                // .addTo(map)
+                .on('done', function(vis, layers) {
+                  //do stuff
+                  //define sublayer
+                  var population = layers[1].getSubLayer(0);
+                  var southWest = L.latLng(-39.019644, 149.985795),
+                      northEast = L.latLng(-33.970739, 140.966559),
+                      bounds = L.latLngBounds(southWest, northEast);
+                  vis.map.set({
+                    minZoom: 8,
+                    maxZoom: 11,
+                    // maxBounds: bounds,
+                    maxBounds : L.latLngBounds([-39.019644, 149.985795],[-33.970739, 140.966559]),
+                  });
+                  window.clicked = "h_bua"
+
+                  
+                  $('.list').click(function(){
+                    $('.list').removeClass('selected');
+                    $(this).addClass('selected');
+                    console.log(window.clicked)
+                    LayerActions[$(this).attr('id')]();
+                    population.setCartoCSS('#melb_data {marker-fill-opacity: 0.4; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #5CA2D1; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_data [ '+window.clicked+' <= 1590] [year='+thisyear+']{marker-width: 39.0; } #melb_data [ '+window.clicked+' <= 1300][year='+thisyear+'] {marker-width: 35.8; } #melb_data [ '+window.clicked+' <= 610][year='+thisyear+']{marker-width: 32.6; } #melb_data [ '+window.clicked+' <= 475][year='+thisyear+'] {marker-width: 29.3; } #melb_data [ '+window.clicked+' <= 253][year='+thisyear+']{marker-width: 26.1; } #melb_data [ '+window.clicked+' <= 127][year='+thisyear+'] {marker-width: 22.9; } #melb_data [ '+window.clicked+' <= 113][year='+thisyear+'] {marker-width: 19.7; } #melb_data [ '+window.clicked+' <= 95][year='+thisyear+'] {marker-width: 16.4; } #melb_data [ '+window.clicked+' <= 48][year='+thisyear+'] {marker-width: 13.2; } #melb_data [ '+window.clicked+' <= 16][year='+thisyear+']{marker-width: 10.0; } #melb_data::labels[year='+thisyear+']{text-name :['+window.clicked+']; text-face-name: "DejaVu Sans Book"; text-size: 9.5; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.8); text-halo-radius: 1.5 ; text-dy: 10; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}') // 
+                          // tz.setInteractivity("cartodb_id, tz06"); \
+                          population.setInteraction(true);
+                     }) //CLOSE SCENARIO
+                  
+                  $('#time').slider().on('slideStop', function(ev){
+                        
+                        thisyear=window.years[ev.value-1]
+                        document.getElementById('year').innerHTML=thisyear
+                        console.log(thisyear)
+                        console.log(clicked)
+                        population.setCartoCSS('#melb_data {marker-fill-opacity: 0.4; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #5CA2D1; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_data [ '+window.clicked+' <= 1590] [year='+thisyear+']{marker-width: 39.0; } #melb_data [ '+window.clicked+' <= 1300][year='+thisyear+'] {marker-width: 35.8; } #melb_data [ '+window.clicked+' <= 610][year='+thisyear+']{marker-width: 32.6; } #melb_data [ '+window.clicked+' <= 475][year='+thisyear+'] {marker-width: 29.3; } #melb_data [ '+window.clicked+' <= 253][year='+thisyear+']{marker-width: 26.1; } #melb_data [ '+window.clicked+' <= 127][year='+thisyear+'] {marker-width: 22.9; } #melb_data [ '+window.clicked+' <= 113][year='+thisyear+'] {marker-width: 19.7; } #melb_data [ '+window.clicked+' <= 95][year='+thisyear+'] {marker-width: 16.4; } #melb_data [ '+window.clicked+' <= 48][year='+thisyear+'] {marker-width: 13.2; } #melb_data [ '+window.clicked+' <= 16][year='+thisyear+']{marker-width: 10.0; } #melb_data::labels[year='+thisyear+']{text-name :['+window.clicked+']; text-face-name: "DejaVu Sans Book"; text-size: 9.5; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.8); text-halo-radius: 1.5 ; text-dy: 10; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}') // 
+                          // population.setInteractivity("cartodb_id, year"); 
+                          // population.setInteraction(true);
+                          var ggg = vis.addOverlay({
+                              layer:population,
+                              type: 'tooltip',
+                              position: 'top|right',
+                              template: '<h2><b>Travel time by car<b></h2>'
+                            });
+
+
+   
+                    })
+                  
+
+                //tz set
+                 
+                  // population.setSQL("SELECT * FROM melb_data");
+
+                  
+//edu on
+                  // tz.on('featureClick', function(e, pos, latlng, data) {
+
+                  //   // console.log(vis.getOverlay('tooltip'))
+                  //   // //clean the previous fucking view
+                  //   if(vis.getOverlay('tooltip')!==undefined){
+                  //     vis.getOverlay('tooltip').clean()
+                  //   }
+                  //   var master=data.name
+                  //   var selected=data.tz06
+                  //   // function header_name(master){
+                  //   //   return master
+                  //   // };
+                  //   // var header=header_name(master)
+                  //   console.log(selected)
+                    
+                  //   tz.setSQL("SELECT travel_zones_nsw_2006.cartodb_id, travel_zones_nsw_2006.the_geom, travel_zones_nsw_2006.the_geom_webmercator, travel_zones_nsw_2006.tz06, car_tt.destination, car_tt.origin, car_tt.time FROM travel_zones_nsw_2006, car_tt WHERE travel_zones_nsw_2006.tz06=car_tt.origin AND destination="+selected);
+                  //   tz.setCartoCSS("#travel_zones_nsw_2006{polygon-fill:  #001a00; polygon-opacity: 0.8; polygon-comp-op: screen; line-color: #f2f0f7; line-width: 0.0; line-opacity: 0;} #car_tt [ time <= 60] {polygon-fill:  #4a1486; }#car_tt [ time <= 55] {polygon-fill:  #6a51a3; }#car_tt [ time <= 50] {polygon-fill:  #9e9ac8; }#car_tt [ time <= 45] {polygon-fill:  #bcbddc; }#car_tt [ time <= 40] {polygon-fill:  #dadaeb; }#car_tt [ time <= 35] {polygon-fill:  #edf8e9; } #car_tt [ time <= 30] {polygon-fill: #c7e9c0; } #car_tt [ time <= 25] {polygon-fill: #a1d99b; } #car_tt [ time <= 20] {polygon-fill: #74c476; } #car_tt [ time <= 15] {polygon-fill: #41ab5d; } #car_tt [ time <= 10] {polygon-fill: #238b45; } #car_tt[ time <= 5] {polygon-fill: #005a32} #car_tt[ time > 60] {polygon-fill:  #ffffff; polygon-opacity: 0.0}");
+                  //   tz.setInteractivity("cartodb_id, tz06, time");
+
+                  //    var ggg = vis.addOverlay({
+                  //         layer:tz,
+                  //         // type: 'infobox',
+                  //         // position: 'bottom|left',
+                  //         type: 'tooltip',
+                  //         position: 'top|right',
+                  //         template: '<h2><b>Travel time by car: </b>{{time}}</h2>'
+                  //       });
+
+                  //      });
+                  })
+                
+                //log error
+                .on('error', function(err) {
+                  alert("some error occurred: " + err);
+                });
+        
+                var LayerActions={
+                   lg1: function(){
+                      window.clicked='l_bua'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    lg2: function(){
+                      window.clicked='l_planmelb'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    lg3: function(){
+                      window.clicked='l_sprwl'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg1: function(){
+                      window.clicked='m_bua'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg2: function(){
+                      window.clicked='m_planmelb'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg3: function(){
+                      window.clicked='m_sprwl'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg1: function(){
+                      window.clicked='h_bua'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg2: function(){
+                      window.clicked='h_planmelb'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg3: function(){
+                      window.clicked='h_sprwl'
+                      console.log(window.clicked)
+                      return true;
+                },          
+          }
+
+          }
+
+      window.onload = main;
+      </script>
+
+
+</body>
+
+</html>
