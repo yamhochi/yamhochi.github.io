@@ -334,11 +334,15 @@
                   var southWest = L.latLng(-39.019644, 149.985795),
                       northEast = L.latLng(-33.970739, 140.966559),
                       bounds = L.latLngBounds(southWest, northEast);
+                  layers[0].leafletMap.setMaxBounds([
+                          [-39.019644, 149.985795], // lat long top left
+                          [-33.970739, 140.966559]  // lat long bottom right
+                    ])
                   vis.map.set({
                     minZoom: 7,
                     maxZoom: 11,
                     // maxBounds: bounds,
-                    maxBounds : L.latLngBounds([[-39.019644, 149.985795],[-33.970739, 140.966559]]),
+                    // maxBounds : L.latLngBounds([[-39.019644, 149.985795],[-33.970739, 140.966559]]),
                   });
                   window.clicked = "h_bua"
 
