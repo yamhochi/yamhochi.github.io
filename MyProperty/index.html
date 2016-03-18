@@ -396,7 +396,9 @@
                       window.value1=$('#rail').data('slider').getValue();
                       if(value1==0){
                           $('#raillist').addClass('disabled');
-                      }
+                      }else if(value1>0 && $('#raillist').hasClass('disabled')){
+                        $('#raillist').removeClass('disabled');  
+                      };
                       console.log(document.getElementById("raillist").className)
                       
                       document.getElementById('valueone').innerHTML=value1
