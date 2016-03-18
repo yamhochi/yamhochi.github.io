@@ -399,7 +399,7 @@
                       }else if(value1>0 && $('#raillist').hasClass('disabled')){
                         $('#raillist').removeClass('disabled');  
                       };
-                      console.log(document.getElementById("raillist").className)
+                    //   console.log(document.getElementById("raillist").className)
                       
                       document.getElementById('valueone').innerHTML=value1
                       return true
@@ -408,16 +408,31 @@
                     },
                     shopping: function(){
                       window.value2=$('#shopping').data('slider').getValue();
+                       if(value1==0){
+                          $('#shoppinglist').addClass('disabled');
+                      }else if(value1>0 && $('#shoppinglist').hasClass('disabled')){
+                        $('#shoppinglist').removeClass('disabled');  
+                      };
                       document.getElementById('valuetwo').innerHTML=value2
                       return true;
                     },
                     health: function(){
                       window.value4=$('#health').data('slider').getValue();
+                       if(value1==0){
+                          $('#healthlist').addClass('disabled');
+                      }else if(value1>0 && $('#healthlist').hasClass('disabled')){
+                        $('#healthlist').removeClass('disabled');  
+                      };
                       document.getElementById('valuefour').innerHTML=value4
                       return true;
                     },
                     edu: function(){
                       window.value5=$('#edu').data('slider').getValue();
+                       if(value1==0){
+                          $('#edulist').addClass('disabled');
+                      }else if(value1>0 && $('#edulist').hasClass('disabled')){
+                        $('#edulist').removeClass('disabled');  
+                      };
                       document.getElementById('valuefive').innerHTML=value5
                       return true;
                     },
