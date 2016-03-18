@@ -408,9 +408,9 @@
                     },
                     shopping: function(){
                       window.value2=$('#shopping').data('slider').getValue();
-                       if(value1==0){
+                       if(value2==0){
                           $('#shoppinglist').addClass('disabled');
-                      }else if(value1>0 && $('#shoppinglist').hasClass('disabled')){
+                      }else if(value2>0 && $('#shoppinglist').hasClass('disabled')){
                         $('#shoppinglist').removeClass('disabled');  
                       };
                       document.getElementById('valuetwo').innerHTML=value2
@@ -418,9 +418,9 @@
                     },
                     health: function(){
                       window.value4=$('#health').data('slider').getValue();
-                       if(value1==0){
+                       if(value4==0){
                           $('#healthlist').addClass('disabled');
-                      }else if(value1>0 && $('#healthlist').hasClass('disabled')){
+                      }else if(value4>0 && $('#healthlist').hasClass('disabled')){
                         $('#healthlist').removeClass('disabled');  
                       };
                       document.getElementById('valuefour').innerHTML=value4
@@ -428,9 +428,9 @@
                     },
                     edu: function(){
                       window.value5=$('#edu').data('slider').getValue();
-                       if(value1==0){
+                       if(value5==0){
                           $('#edulist').addClass('disabled');
-                      }else if(value1>0 && $('#edulist').hasClass('disabled')){
+                      }else if(value5>0 && $('#edulist').hasClass('disabled')){
                         $('#edulist').removeClass('disabled');  
                       };
                       document.getElementById('valuefive').innerHTML=value5
