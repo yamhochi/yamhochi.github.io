@@ -305,7 +305,7 @@
         </nav>
 
         <!-- <div id="page-wrapper"> -->
-            <div id="map">xxx</div>
+            <div id="map"></div>
             
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -371,12 +371,12 @@
               }
             }
             console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
-            
+            var gg='#ginger'
              $('.slides').slider().on('slideStop', function(){
             // $('.slides').slider()
                 // console.log(evt.value)
                 // $('.list').removeClass('selected');
-                $('#ginger').addClass('disabled');
+                $(gg).addClass('disabled');
                 console.log(LayerActions[$(this).attr('id')]());
                 console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
                 LayerActions[$(this).attr('id')]()
