@@ -261,13 +261,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <!-- <div class="navbar-brand" align="center"><center>I want to be</center></div> -->
-                    <li class="list" id="ginger">
+                    <li class="list" id="raillist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1" align="center"><u id="valueone" font size="2em">1</u> minutes from<br> Train Stations<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="1" id="rail"></div>
                         <ul id="demo1" class="collapse">
                             <div class="dropdowntext"><small>Public transport: not only does improving the accessibility and connectivity of the public transport network ensure higher mobility and opportunity for all people, especially those without access to a car, but it ensures that a population’s needs are met while reducing emissions and traffic congestion.</small></div>
                         </ul>
                     </li>                    
-                    <li class="list">
+                    <li class="list" id="shoppinglist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2" align="center"><u id="valuetwo" font size="2em">1</u> minutes from<br> Shopping Centres<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" id="shopping"></div>
                         <ul id="demo2" class="collapse">
                             <div class="dropdowntext"><small>Retail: Often forming the core of a strategic centre, ensuring appropriate access (preferably within walking distance) to retail can create vibrant activity centres and meeting points, while providing the ability to acquire necessary goods and services.</small></div>
@@ -279,7 +279,7 @@
                             <div class="dropdowntext"><small>  Open space: Publicly accessible open space is of great importance in urban areas. It not only facilitates passive outdoor enjoyment, recreation and community gatherings, but also promotes physical and mental health and wellbeing in a population. </small></div>
                         </ul>
                     </li> -->
-                    <li class="list">
+                    <li class="list" id="healthlist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo4" align="center"><u id="valuefour" font size="2em">1</u> minutes from<br> Schools<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="1" id="health"></div>
                         <ul id="demo4" class="collapse">
                             <div class="dropdowntext"><small>Education (primary schools): Access to education can attract families and promote a diversity of demographics in an urban areas. 
@@ -287,7 +287,7 @@
 </small></div>
                         </ul>
                     </li>
-                    <li  class="list">
+                    <li  class="list" id="edulist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo5" align="center"><u id="valuefive" font size="2em">1</u> minutes from<br> Hospitals<i class="fa fa-fw fa-caret-down"></i></a><div class="slide disabled"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="1" id="edu"></div>
                         <ul id="demo5" class="collapse">
                             <div class="dropdowntext"><small>Hospitals (health): With access to healthcare considered a right in Australia, proximity to healthcare services can promote liveability and wellbeing. </small></div>
@@ -371,7 +371,8 @@
               }
             }
             console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
-            var gg='#ginger'
+            var list = {rail:'#ginger}
+            console.log(list[rail])
              $('.slides').slider().on('slideStop', function(){
             // $('.slides').slider()
                 // console.log(evt.value)
