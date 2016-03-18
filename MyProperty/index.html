@@ -371,13 +371,10 @@
               }
             }
             console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
-            var list = {rail:'#ginger'}
-            console.log(list.rail)
              $('.slides').slider().on('slideStop', function(){
             // $('.slides').slider()
                 // console.log(evt.value)
                 // $('.list').removeClass('selected');
-                $(gg).addClass('disabled');
                 console.log(LayerActions[$(this).attr('id')]());
                 console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
                 LayerActions[$(this).attr('id')]()
@@ -397,6 +394,9 @@
            var LayerActions={
                    rail: function(){
                       window.value1=$('#rail').data('slider').getValue();
+                      if(value1==0){
+                          $('#raillist').addClass('disabled');
+                      };
                       document.getElementById('valueone').innerHTML=value1
                       return true
 
