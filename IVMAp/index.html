@@ -21,25 +21,24 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/slider.css" >
+    <link rel="stylesheet" href="http://www.eyecon.ro/bootstrap-slider/css/slider.css" >
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <style>
-      /*html, body {
-        height: 100%;
-        padding: 0;
-        margin: 0;
-      }*/
+
+
       #map {
         /*top: 50px;*/
         height: calc(100vh - 50px) ;
         padding: 0;
         margin: 0;
       }
+
       .slide ,.dropdowntext{
         padding: 0px 20px 0px 20px;
         /*padding-top: 10px;*/
       }
       
+
       .list-group {
         position:absolute;
         left: 50px;
@@ -49,14 +48,18 @@
         background:rgba(255,255,255,0.8);
         /*z-index: 4;*/
       }
+
       .list-group-item{
          background:rgba(255,255,255,0.0);
          /*width:100%;*/
       }
+
       #time {
         opacity:1;
         /*width:67%;*/
+
       }
+
       .btn-group-vertical{
         position:absolute;
         left: 50px;
@@ -70,9 +73,11 @@
       .btn{
         .selected;
       }
+
       small {
             color: white;
         }
+
     a{
         color: #fff;
     }
@@ -84,7 +89,7 @@
     }
       
       </style>
-     
+    <link href="https://ajax.googleapis.com/ajax/static/modules/gviz/1.0/core/tooltip.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
     <!-- /*<style></style>*/ -->
 
@@ -113,142 +118,48 @@
                 </button>
                 <a class="navbar-brand" href="#">SGS Economics and Planning</a>
             </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About this map<b class="caret"></b></a>
-                    <!-- <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul> -->
-                </li>
-            </ul>
+               
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff;"><b> LOW GROWTH</b></p>
+                    </li>
                     <li class="list" id="lg1">
-                        <a href="#" style="background:#08306b; color:white">Low Growth-Business As Usual</a>
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">BUSINESS AS USUAL</a>
                     </li>
                     <li class="list" id="lg2">
-                        <a href="#" style="background:#08519c; color:white">Low Growth-Consolidated</a>
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">CONSOLIDATED</a>
                     </li>
                     <li class="list" id="lg3">
-                        <a href="#" style="background:#2171b5; color:white">Low Growth-Expansion</a>
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">EXPANSION</a>
+                    </li>
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff"><b> MEDIUM GROWTH</b></p>
                     </li>
                     <li class="list" id="mg2">
-                        <a href="#" style="background:#00441b; color:white">Medium Growth-Business As Usual</a>
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">BUSINESS AS USUAL</a>
                     </li>
                     <li class="list" id="mg2">
-                        <a href="#" style="background:#006d2c; color:white">Medium Growth-Consolidated</a>
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">CONSOLIDATED</a>
                     </li>
                     <li class="list" id="mg3">
-                        <a href="#" style="background:#238b45; color:white">Medium Growth-Expansion</a>
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">EXPANSION</a>
+                    </li>
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff"><b> HIGH GROWTH</b></p>
                     </li>
                     <li class="list" id="hg1">
-                        <a href="#" style="background:#cc4c02; color:white">High Growth-Business As Usual</a>
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">BUSINESS AS USUAL</a>
                     </li>
                     <li class="list" id="hg2">
-                        <a href="#" style="background:#ec7014; color:white">High Growth-Consolidated</a>
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">CONSOLIDATED</a>
                     </li>
                     <li class="list" id="hg3">
-                        <a href="#" style="background:#fe9929; color:white">High Growth-Expansion</a>
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">EXPANSION</a>
                     </li>
                     <li class="ll">
-                        <a href="#" style="color:white"><div id=year>2016</div></a><div class="slide"><input type="text" class="span2" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" id="time"></div>
+                        <a href="#" style="color:white; padding-left:23px"><div id="year">2016</div></a><div class="slide"><input type="text" class="span2" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" id="time"></div>
                     </li>
                     <!-- <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
@@ -261,39 +172,6 @@
         <!-- <div id="page-wrapper"> -->
             <div id="map"></div>
             
-            <!-- <div class="container-fluid"> -->
-                
-                
-
-                <!-- Page Heading -->
-                <!-- <div class="row"> -->
-                    <!-- <div class="col-lg-12"> -->
-                       <!--  <h1 class="page-header">
-                            Blank Page
-                            <small>Subheading</small>
-                        </h1> -->
-                        <!-- <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-                <!-- /.row -->
-
-
-            <!-- </div> -->
-            <!-- /.container-fluid -->
-
-        <!-- </div> -->
-        <!-- /#page-wrapper -->
-        
-
-    <!-- </div> -->
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -302,27 +180,93 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
     <!-- For slider -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
-    <script src="../js/bootstrap-slider.js"></script>
+    <script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>
 
+    <!-- for infowindow -->
+    <script type="infowindow/html" id="infowindow_template"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
+
+    // load visualization library from google
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+
+      function draw_chart(data,type) {
+         var data = google.visualization.arrayToDataTable([
+          ['Year', 'Business As Usual', window.scenario],
+          ['2016',  data[0], data[4]],
+          ['2021',  data[1], data[5]],
+          ['2031',  data[2], data[6]],
+          ['2046',  data[3], data[7]],
+        ]);
+         var options = {
+          title: type+" (000"+"'"+"s)", 
+          curveType: 'function',
+          legend: {position: 'bottom'},
+          series: {
+            0: { color: '#8BC34A'},
+            1: { color: clickedcolor_pop},
+          }
+        };
+         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      } //close draw chart
+
     function main(){
             window.years = [2016,2021,2031,2046]
-            thisyear = 2016
+            window.thisyear = 2016
+            window.clicked ='m_exp'
+            window.scenario='Medium:Expansion'
+            // window.clickedcolor_pop='#f0f0f0'
+            window.clickedcolor_emp='#689F38'
+            window.clickedcolor_pop='#33691E'
+            window.variable = ['content.data._2016_'+window.clicked,'content.data._2021_'+window.clicked,'content.data._2031_'+window.clicked,'content.data._2046_'+window.clicked]
+
+            function infowindow(variable){
+              return ['<div class="cartodb-popup v2">',
+                                '  <a href="#close" class="cartodb-popup-close-button close">x</a>',
+                                '   <div class="cartodb-popup-content-wrapper">',
+                                '     <div class="cartodb-popup-content">',
+                                '       <div id="chart_div">',
+                                '       <script>',
+                                '         draw_chart([{{content.data._2016_m_bau}}, {{content.data._2021_m_bau}}, {{content.data._2031_m_bau}}, {{content.data._2046_m_bau}}, {{'+variable[0]+'}}, {{'+variable[1]+'}}, {{'+variable[2]+'}}, {{'+variable[3]+'}}],"{{content.data.type}}");',
+                                '       </scr' + 'ipt>',
+                                '       </div>',
+                                '     </div>',
+                                '   </div>',
+                                '   <div class="cartodb-popup-tip-container"></div>',
+                                '</div>'].join('')
+            }
+
+            function popcss(thisyear,clicked){             
+              var p= ['#melb_pop {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor_pop+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_pop ['+'_'+thisyear+'_'+clicked+' <= 1590]{marker-width: 60.0; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 1300]{marker-width: 50.8; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 610]{marker-width: 45; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 475]{marker-width: 40; } #melb_pop ['+'_'+thisyear+'_'+clicked+' <= 253]{marker-width: 35.1; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 127]{marker-width: 30.9; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 113]{marker-width: 25.7; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 95]{marker-width: 20.4; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 48]{marker-width: 15.2; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 16]{marker-width: 10.0; } #melb_pop::labels{text-name :['+'_'+thisyear+'_'+clicked+']+" POP" ; text-face-name: "DejaVu Sans Book"; text-size: 8; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.6); text-halo-radius: 1.5 ; text-dy: -6; text-dx:0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}']
+              return p
+            }
+
+            function empcss(thisyear,clicked){             
+              var e= ['#melb_emp {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor_pop+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_emp ['+'_'+thisyear+'_'+clicked+' <= 1590]{marker-width: 60.0; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 1300]{marker-width: 50.8; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 610]{marker-width: 45.6; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 475]{marker-width: 40.3; } #melb_emp ['+'_'+thisyear+'_'+clicked+' <= 253]{marker-width: 35.1; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 127]{marker-width: 30.9; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 113]{marker-width: 25.7; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 95]{marker-width: 20.4; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 48]{marker-width: 15.2; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 16]{marker-width: 10.0; } #melb_emp::labels{text-name :['+'_'+thisyear+'_'+clicked+']+" JOBS" ; text-face-name: "DejaVu Sans Book"; text-size: 8; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.6); text-halo-radius: 1.5 ; text-dy: 5; text-dx:0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}']
+              return e
+
+            }
+
             var sql = new cartodb.SQL({ user: 'ay' });
-            cartodb.createVis(map,  'https://sgsep.cartodb.com/u/ay/api/v2/viz/8e7b7afc-ceeb-11e5-a94e-0ea31932ec1d/viz.json')
+            cartodb.createVis(map,  'https://sgsep.cartodb.com/u/ay/api/v2/viz/20ce2104-fab9-11e5-b99a-0ef24382571b/viz.json',{infowindow: true, tooltip:false})
                 // .addTo(map)
-                .on('done', function(vis, layers) {
+                .on('done', function(vis, layers){
                   //do stuff
-                  //define sublayer
+                  //define sublayer population and employment
                   var population = layers[1].getSubLayer(0);
+                  var employment = layers[1].getSubLayer(1);
+
                   var southWest = L.latLng(-39.019644, 149.985795),
                       northEast = L.latLng(-33.970739, 140.966559),
                       bounds = L.latLngBounds(southWest, northEast);
+                  
                   layers[0].leafletMap.setMaxBounds([
                           [-39.019644, 149.985795], // lat long top left
                           [-33.970739, 140.966559]  // lat long bottom right
@@ -331,104 +275,182 @@
                     minZoom: 7,
                     maxZoom: 11,
                   });
-                  window.clicked = "h_bua"
-                  
+                
+                    //FOR When layers are first loaded 
+                    //set population markers css
+                    population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                    //set employment markers css
+                    employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                    //set popup styles - in this case compare base case (m-bau) against the selected scenario
+                     population.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(variable),
+                      sanitizeTemplate: false,
+                      width:      200,
+                      maxHeight:  400,
+                    });
+
+                    //employment popup
+                    employment.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(variable),
+                      sanitizeTemplate: false,
+                      width:      200,
+                      maxHeight:  400,
+                    });   
+
+                    // END BASE CASE
+
+
+                  // what happens when sidebar items  are clicked on
                   $('.list').click(function(){
                     $('.list').removeClass('selected');
                     $(this).addClass('selected');
-                    console.log(window.clicked)
                     LayerActions[$(this).attr('id')]();
-                    population.setCartoCSS('#melb_data {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_data [ '+window.clicked+' <= 1590] [year='+thisyear+']{marker-width: 60.0; } #melb_data [ '+window.clicked+' <= 1300][year='+thisyear+'] {marker-width: 50.8; } #melb_data [ '+window.clicked+' <= 610][year='+thisyear+']{marker-width: 45; } #melb_data [ '+window.clicked+' <= 475][year='+thisyear+'] {marker-width: 40; } #melb_data [ '+window.clicked+' <= 253][year='+thisyear+']{marker-width: 35; } #melb_data [ '+window.clicked+' <= 127][year='+thisyear+'] {marker-width: 30; } #melb_data [ '+window.clicked+' <= 113][year='+thisyear+'] {marker-width: 25; } #melb_data [ '+window.clicked+' <= 95][year='+thisyear+'] {marker-width: 20; } #melb_data [ '+window.clicked+' <= 48][year='+thisyear+'] {marker-width: 15; } #melb_data [ '+window.clicked+' <= 16][year='+thisyear+']{marker-width: 10.0; } #melb_data::labels[year='+thisyear+']{text-name :['+window.clicked+']; text-face-name: "DejaVu Sans Book"; text-size: 9.5; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.8); text-halo-radius: 1.5 ; text-dy: 0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}') // 
-                          // tz.setInteractivity("cartodb_id, tz06"); \
-                          population.setInteraction(true);
-                     }) //CLOSE SCENARIO
+                    
+                    // use this to specify data in the infowindow google chart
+                    window.variable = ['content.data._2016_'+window.clicked,'content.data._2021_'+window.clicked,'content.data._2031_'+window.clicked,'content.data._2046_'+window.clicked]
+                    console.log(variable)
+                    // population - style marker sizes based on selected scenario (each scenario is a column in cartodb data table)
+                    population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                    //employment - style marker sizes based on selected scenario (each scenario is a column in cartodb data table)
+                    employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                     population.setInteraction(true);
+                     employment.setInteraction(true);
+                    //set popup styles - in this case compare base case (m-bau) against the selected scenario
+                     population.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(window.variable),
+                      sanitizeTemplate: false,
+                      width:      200,
+                      maxHeight:  400,
+                    }); 
+
+                    //employment popup
+                    employment.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(window.variable),
+                      sanitizeTemplate: false,
+                      width:      200,
+                      maxHeight:  400,
+                    }); 
+                
+                    }) //CLOSE SCENARIO
                   
-                  $('#time').slider().on('slideStop', function(ev){
-                        
+                  $('#time').slider().on('slideStop', function(ev){                       
                         thisyear=window.years[ev.value-1]
                         document.getElementById('year').innerHTML=thisyear
                         console.log(thisyear)
-                        console.log(clicked)
-                        population.setCartoCSS('#melb_data {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_data [ '+window.clicked+' <= 1590] [year='+thisyear+']{marker-width: 60.0; } #melb_data [ '+window.clicked+' <= 1300][year='+thisyear+'] {marker-width: 50; } #melb_data [ '+window.clicked+' <= 610][year='+thisyear+']{marker-width: 45; } #melb_data [ '+window.clicked+' <= 475][year='+thisyear+'] {marker-width: 40; } #melb_data [ '+window.clicked+' <= 253][year='+thisyear+']{marker-width: 35; } #melb_data [ '+window.clicked+' <= 127][year='+thisyear+'] {marker-width: 30; } #melb_data [ '+window.clicked+' <= 113][year='+thisyear+'] {marker-width: 25; } #melb_data [ '+window.clicked+' <= 95][year='+thisyear+'] {marker-width: 20; } #melb_data [ '+window.clicked+' <= 48][year='+thisyear+'] {marker-width: 15; } #melb_data [ '+window.clicked+' <= 16][year='+thisyear+']{marker-width: 10.0; } #melb_data::labels[year='+thisyear+']{text-name :['+window.clicked+']; text-face-name: "DejaVu Sans Book"; text-size: 9.5; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.8); text-halo-radius: 1.5 ; text-dy: 0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}') // 
-                          // population.setInteractivity("cartodb_id, year"); 
-                          // population.setInteraction(true);
-                          var ggg = vis.addOverlay({
-                              layer:population,
-                              type: 'tooltip',
-                              position: 'top|right',
-                              template: '<h2><b>Travel time by car<b></h2>'
-                            });
-   
-                    })
-                  
-                
+                        console.log(window.clicked)
+                        console.log('_'+thisyear+'_'+window.clicked)
+                        population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                        employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                    //  population.infowindow.set({
+                    //   template:   INFOWINDOW_TEMPLATE,
+                    //   sanitizeTemplate: false,
+                    //   width:      300,
+                    //   maxHeight:  400,
+                    // });
+                    })//CLOSE SCENARIO
                   })
                 
                 //log error
                 .on('error', function(err) {
                   alert("some error occurred: " + err);
                 });
-        
+
+
+     // Wire up buttons. This determines which column gets selected when the left list is selected.
                 var LayerActions={
                    lg1: function(){
-                      window.clicked='l_bua'
+                      window.clicked='l_bau'
+                      window.scenario='Low:Business As Usual'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
                       console.log(window.clicked)
-                      window.clickedcolor = '#08306b'
+                      // console.log(window.combined)
                       return true;
                     },
                     lg2: function(){
-                      window.clicked='l_planmelb'
+                      window.clicked='l_cons'
+                      window.scenario='Low:Consolidated'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
                       console.log(window.clicked)
-                      window.clickedcolor = '#08519c'
                       return true;
                     },
                     lg3: function(){
-                      window.clicked='l_sprwl'
+                      window.clicked='l_exp'
+                      window.scenario='Low:Expansion'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
                       console.log(window.clicked)
-                      window.clickedcolor = '#2171b5'
                       return true;
                     },
                     mg1: function(){
-                      window.clicked='m_bua'
+                      window.clicked='m_bau'
+                      window.scenario='Medium:Business As Usual'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
                       console.log(window.clicked)
-                      window.clickedcolor = '#00441b'
                       return true;
                     },
                     mg2: function(){
-                      window.clicked='m_planmelb'
+                      window.clicked='m_cons'
+                      window.scenario='Medium:Consolidated'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
                       console.log(window.clicked)
-                      window.clickedcolor = '#006d2c'
                       return true;
                     },
                     mg3: function(){
-                      window.clicked='m_sprwl'
+                      window.clicked='m_exp'
+                      window.scenario='Medium:Expansion'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
                       console.log(window.clicked)
-                      window.clickedcolor = '#238b45'
                       return true;
                     },
                     hg1: function(){
-                      window.clicked='h_bua'
+                      window.clicked='h_bau'
+                      window.scenario='High:Business As Usual'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
                       console.log(window.clicked)
-                      window.clickedcolor = '#cc4c02'
                       return true;
                     },
                     hg2: function(){
-                      window.clicked='h_planmelb'
+                      window.clicked='h_cons'
+                      window.scenario='High:Consolidated'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
                       console.log(window.clicked)
-                      window.clickedcolor = '#ec7014'
                       return true;
                     },
                     hg3: function(){
-                      window.clicked='h_sprwl'
+                      window.clicked='h_exp'
+                      window.scenario='High:Expansion'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
                       console.log(window.clicked)
-                      window.clickedcolor = '#fe9929'
                       return true;
                 },          
-          }
-          }
+          }//close layer actions
+        }//close function main
+
+
       window.onload = main;
       </script>
 
+    <script src="https://www.google.com/uds/?file=visualization&amp;v=1.0&amp;packages=corechart" type="text/javascript"></script>
+    <link href="https://www.google.com/uds/api/visualization/1.0/707b4cf11c6a02b0e004d31b539ac729/ui+en.css" type="text/css" rel="stylesheet">
+    <script src="https://www.google.com/uds/api/visualization/1.0/707b4cf11c6a02b0e004d31b539ac729/format+en,default+en,ui+en,corechart+en.I.js" type="text/javascript"></script>
 
 </body>
 
