@@ -153,7 +153,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">What is an acces score?<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">What is an access score?<b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
                             <a href="#">
@@ -166,9 +166,9 @@
                                             <strong>Access Scores</strong>
                                         </h5>
                                         <!-- <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p> -->
-                                        <p>Reducing travel distances to a diversity of jobs, open space, facilities and services (including retail and health services), and reducing automobile dependency, can have a range of environmental, social and economic benefits that can improve quality of life. It can promote equity of access and opportunity, have health benefits as a result of higher active transport participation, and can moreover result in a reduction of greenhouse gas emissions and pollution. With shorter travel times the productivity of an area can increase, along with diversity, vitality, innovation and creativity, and have positive impact on the attractiveness of an urban area as a whole. </p>
-
-                                        <p>The relevance of each of the accessibility measures used in the mapping tool is briefly described in the drop down menu on the left</p>
+                                        <p>This mapping tool helps users understand quality of life by showing relative ‘accessibility’ of facilities and services based on personal priorities.</p><p>It supports the view that equity of access and opportunities, access to diversity of jobs, open space, facilities and services (including retail and health services), and reducing automobile dependency, can have a range of environmental, social and economic benefits that can improve quality of life. </p>
+<p>The colour gradients on this map represent an area’s relative accessibility to the nearest local infrastructure (Trains, Shopping Centres, Schools, Hospitals) and therefore allowing the user to identify the most ‘liveable’ area in the city.
+</p><p>The relevance of each of the accessibility measures used in the mapping tool is briefly described in the drop down menu on the left</p>
 
                                     </div>
                                 </div>
@@ -261,13 +261,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <!-- <div class="navbar-brand" align="center"><center>I want to be</center></div> -->
-                    <li class="list">
+                    <li class="list" id="raillist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1" align="center"><u id="valueone" font size="2em">1</u> minutes from<br> Train Stations<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="1" id="rail"></div>
                         <ul id="demo1" class="collapse">
                             <div class="dropdowntext"><small>Public transport: not only does improving the accessibility and connectivity of the public transport network ensure higher mobility and opportunity for all people, especially those without access to a car, but it ensures that a population’s needs are met while reducing emissions and traffic congestion.</small></div>
                         </ul>
                     </li>                    
-                    <li class="list">
+                    <li class="list" id="shoppinglist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2" align="center"><u id="valuetwo" font size="2em">1</u> minutes from<br> Shopping Centres<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" id="shopping"></div>
                         <ul id="demo2" class="collapse">
                             <div class="dropdowntext"><small>Retail: Often forming the core of a strategic centre, ensuring appropriate access (preferably within walking distance) to retail can create vibrant activity centres and meeting points, while providing the ability to acquire necessary goods and services.</small></div>
@@ -279,7 +279,7 @@
                             <div class="dropdowntext"><small>  Open space: Publicly accessible open space is of great importance in urban areas. It not only facilitates passive outdoor enjoyment, recreation and community gatherings, but also promotes physical and mental health and wellbeing in a population. </small></div>
                         </ul>
                     </li> -->
-                    <li class="list">
+                    <li class="list" id="healthlist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo4" align="center"><u id="valuefour" font size="2em">1</u> minutes from<br> Schools<i class="fa fa-fw fa-caret-down"></i></a><div class="slide"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="13" data-slider-step="1" data-slider-value="1" id="health"></div>
                         <ul id="demo4" class="collapse">
                             <div class="dropdowntext"><small>Education (primary schools): Access to education can attract families and promote a diversity of demographics in an urban areas. 
@@ -287,7 +287,7 @@
 </small></div>
                         </ul>
                     </li>
-                    <li  class="list">
+                    <li  class="list" id="edulist">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo5" align="center"><u id="valuefive" font size="2em">1</u> minutes from<br> Hospitals<i class="fa fa-fw fa-caret-down"></i></a><div class="slide disabled"><input type="text" class="span2 slides" value="0" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="1" id="edu"></div>
                         <ul id="demo5" class="collapse">
                             <div class="dropdowntext"><small>Hospitals (health): With access to healthcare considered a right in Australia, proximity to healthcare services can promote liveability and wellbeing. </small></div>
@@ -305,7 +305,7 @@
         </nav>
 
         <!-- <div id="page-wrapper"> -->
-            <div id="map">xxx</div>
+            <div id="map"></div>
             
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -371,10 +371,10 @@
               }
             }
             console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
-            
              $('.slides').slider().on('slideStop', function(){
             // $('.slides').slider()
                 // console.log(evt.value)
+                // $('.list').removeClass('selected');
                 console.log(LayerActions[$(this).attr('id')]());
                 console.log("value1="+ value1 +","+"value2="+value2+ "value3="+ value3 +","+"value4="+ value4+"value5="+value5)
                 LayerActions[$(this).attr('id')]()
@@ -394,6 +394,13 @@
            var LayerActions={
                    rail: function(){
                       window.value1=$('#rail').data('slider').getValue();
+                      if(value1==0){
+                          $('#raillist').addClass('disabled');
+                      }else if(value1>0 && $('#raillist').hasClass('disabled')){
+                        $('#raillist').removeClass('disabled');  
+                      };
+                    //   console.log(document.getElementById("raillist").className)
+                      
                       document.getElementById('valueone').innerHTML=value1
                       return true
 
@@ -401,16 +408,31 @@
                     },
                     shopping: function(){
                       window.value2=$('#shopping').data('slider').getValue();
+                       if(value2==0){
+                          $('#shoppinglist').addClass('disabled');
+                      }else if(value2>0 && $('#shoppinglist').hasClass('disabled')){
+                        $('#shoppinglist').removeClass('disabled');  
+                      };
                       document.getElementById('valuetwo').innerHTML=value2
                       return true;
                     },
                     health: function(){
                       window.value4=$('#health').data('slider').getValue();
+                       if(value4==0){
+                          $('#healthlist').addClass('disabled');
+                      }else if(value4>0 && $('#healthlist').hasClass('disabled')){
+                        $('#healthlist').removeClass('disabled');  
+                      };
                       document.getElementById('valuefour').innerHTML=value4
                       return true;
                     },
                     edu: function(){
                       window.value5=$('#edu').data('slider').getValue();
+                       if(value5==0){
+                          $('#edulist').addClass('disabled');
+                      }else if(value5>0 && $('#edulist').hasClass('disabled')){
+                        $('#edulist').removeClass('disabled');  
+                      };
                       document.getElementById('valuefive').innerHTML=value5
                       return true;
                     },

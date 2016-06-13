@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Land Use</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/slider.css" >
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style>
+
+
+      #map {
+        /*top: 50px;*/
+        height: calc(100vh - 50px) ;
+        padding: 0;
+        margin: 0;
+      }
+
+      .slide ,.dropdowntext{
+        padding: 0px 20px 0px 20px;
+        /*padding-top: 10px;*/
+      }
+      
+
+      .list-group {
+        position:absolute;
+        left: 50px;
+        top: calc(20% + 300px);
+        width:auto;
+        padding: 20px;
+        background:rgba(255,255,255,0.8);
+        /*z-index: 4;*/
+      }
+
+      .list-group-item{
+         background:rgba(255,255,255,0.0);
+         /*width:100%;*/
+      }
+
+      #time {
+        opacity:1;
+        /*width:67%;*/
+
+      }
+
+      .btn-group-vertical{
+        position:absolute;
+        left: 50px;
+        top: 20%;
+        /*z-index:3;*/
+        opacity:0.8;
+      }
+      .ll.selected{
+        background:red;
+      }
+      .btn{
+        .selected;
+      }
+
+      small {
+            color: white;
+        }
+
+    a{
+        color: #fff;
+    }
+/*
+    <ul class="nav navbar-nav side-nav">
+                    <li class="list" id="lg1">*/
+    ul.nav navbar-nav side-nav li.active a {
+        color: red !important;
+    }
+      
+      </style>
+    <link href="https://ajax.googleapis.com/ajax/static/modules/gviz/1.0/core/tooltip.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <!-- /*<style></style>*/ -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SGS Economics and Planning</a>
+            </div>
+               
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff;"><b> LOW GROWTH</b></p>
+                    </li>
+                    <li class="list" id="lg1">
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">BUSINESS AS USUAL</a>
+                    </li>
+                    <li class="list" id="lg2">
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">CONSOLIDATED</a>
+                    </li>
+                    <li class="list" id="lg3">
+                        <a href="#" style="border-left: 3px solid #03A9F4; margin-left: 5px;">EXPANSION</a>
+                    </li>
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff"><b> MEDIUM GROWTH</b></p>
+                    </li>
+                    <li class="list" id="mg2">
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">BUSINESS AS USUAL</a>
+                    </li>
+                    <li class="list" id="mg2">
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">CONSOLIDATED</a>
+                    </li>
+                    <li class="list" id="mg3">
+                        <a href="#" style="border-left: 3px solid #8BC34A; margin-left: 5px;">EXPANSION</a>
+                    </li>
+                    <li>
+                        <p style="padding: 10px 0px 0px 5px; color:#fff"><b> HIGH GROWTH</b></p>
+                    </li>
+                    <li class="list" id="hg1">
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">BUSINESS AS USUAL</a>
+                    </li>
+                    <li class="list" id="hg2">
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">CONSOLIDATED</a>
+                    </li>
+                    <li class="list" id="hg3">
+                        <a href="#" style="border-left: 3px solid #FFC107; margin-left: 5px;">EXPANSION</a>
+                    </li>
+                    <li class="ll">
+                        <a href="#" style="color:white; padding-left:23px"><div id="year">2016</div></a><div class="slide"><input type="text" class="span2" data-slider-min="1" data-slider-max="4" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" id="time"></div>
+                    </li>
+                    <!-- <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- <div id="page-wrapper"> -->
+            <div id="map"></div>
+            
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <!-- For slider -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
+    <script src="../js/bootstrap-slider.js"></script>
+
+    <!-- for infowindow -->
+    <script type="infowindow/html" id="infowindow_template"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+
+    // load visualization library from google
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+
+      function draw_chart(data,type) {
+         var data = google.visualization.arrayToDataTable([
+          ['Year', 'Business As Usual', window.scenario],
+          ['2016',  data[0], data[4]],
+          ['2021',  data[1], data[5]],
+          ['2031',  data[2], data[6]],
+          ['2046',  data[3], data[7]],
+        ]);
+         var options = {
+          title: type+" (000"+"'"+"s)", 
+          curveType: 'function',
+          legend: {position: 'bottom'},
+          series: {
+            0: { color: '#8BC34A'},
+            1: { color: clickedcolor_pop},
+          }
+        };
+         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      } //close draw chart
+
+    function main(){
+            window.years = [2016,2021,2031,2046]
+            window.thisyear = 2016
+            window.clicked ='m_exp'
+            window.scenario='Medium:Expansion'
+            // window.clickedcolor_pop='#f0f0f0'
+            window.clickedcolor_emp='#689F38'
+            window.clickedcolor_pop='#33691E'
+            window.variable = ['content.data._2016_'+window.clicked,'content.data._2021_'+window.clicked,'content.data._2031_'+window.clicked,'content.data._2046_'+window.clicked]
+
+            function infowindow(variable){
+              return ['<div class="cartodb-popup v2">',
+                                '  <a href="#close" class="cartodb-popup-close-button close">x</a>',
+                                '   <div class="cartodb-popup-content-wrapper">',
+                                '     <div class="cartodb-popup-content">',
+                                '       <div id="chart_div">',
+                                '       <script>',
+                                '         draw_chart([{{content.data._2016_m_bau}}, {{content.data._2021_m_bau}}, {{content.data._2031_m_bau}}, {{content.data._2046_m_bau}}, {{'+variable[0]+'}}, {{'+variable[1]+'}}, {{'+variable[2]+'}}, {{'+variable[3]+'}}],"{{content.data.type}}");',
+                                '       </scr' + 'ipt>',
+                                '       </div>',
+                                '     </div>',
+                                '   </div>',
+                                '   <div class="cartodb-popup-tip-container"></div>',
+                                '</div>'].join('')
+            }
+
+            function popcss(thisyear,clicked){             
+              var p= ['#melb_pop {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor_pop+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_pop ['+'_'+thisyear+'_'+clicked+' <= 2000]{marker-width: 60.0; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 1300]{marker-width: 50.8; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 610]{marker-width: 45; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 475]{marker-width: 40; } #melb_pop ['+'_'+thisyear+'_'+clicked+' <= 253]{marker-width: 35.1; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 127]{marker-width: 30.9; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 113]{marker-width: 25.7; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 95]{marker-width: 20.4; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 48]{marker-width: 15.2; } #melb_pop [ '+'_'+thisyear+'_'+clicked+' <= 16]{marker-width: 10.0; } #melb_pop::labels{text-name :['+'_'+thisyear+'_'+clicked+']+" POP" ; text-face-name: "DejaVu Sans Book"; text-size: 8; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.6); text-halo-radius: 1.5 ; text-dy: -6; text-dx:0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}']
+              return p
+            }
+
+            function empcss(thisyear,clicked){             
+              var e= ['#melb_emp {marker-fill-opacity: 0.8; marker-line-color: #FFF; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-width:0; marker-multi-policy: largest; marker-type: ellipse; marker-fill: '+clickedcolor_pop+'; marker-allow-overlap: true; marker-clip: false; marker-comp-op: screen; } #melb_emp ['+'_'+thisyear+'_'+clicked+' <= 2000]{marker-width: 60.0; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 1300]{marker-width: 50.8; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 610]{marker-width: 45.6; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 475]{marker-width: 40.3; } #melb_emp ['+'_'+thisyear+'_'+clicked+' <= 253]{marker-width: 35.1; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 127]{marker-width: 30.9; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 113]{marker-width: 25.7; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 95]{marker-width: 20.4; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 48]{marker-width: 15.2; } #melb_emp [ '+'_'+thisyear+'_'+clicked+' <= 16]{marker-width: 10.0; } #melb_emp::labels{text-name :['+'_'+thisyear+'_'+clicked+']+" JOBS" ; text-face-name: "DejaVu Sans Book"; text-size: 8; text-label-position-tolerance: 10; text-fill: #29293d; text-halo-fill: fadeout(white,0.6); text-halo-radius: 1.5 ; text-dy: 5; text-dx:0; text-allow-overlap:true; text-placement: point; text-placement-type: simple;}']
+              return e
+
+            }
+
+            var sql = new cartodb.SQL({ user: 'ay' });
+            cartodb.createVis(map,  'https://sgsep.cartodb.com/u/ay/api/v2/viz/20ce2104-fab9-11e5-b99a-0ef24382571b/viz.json',{infowindow: true, tooltip:false})
+                // .addTo(map)
+                .on('done', function(vis, layers){
+                  //do stuff
+                  //define sublayer population and employment
+                  var population = layers[1].getSubLayer(0);
+                  var employment = layers[1].getSubLayer(1);
+
+                  var southWest = L.latLng(-39.019644, 149.985795),
+                      northEast = L.latLng(-33.970739, 140.966559),
+                      bounds = L.latLngBounds(southWest, northEast);
+                  
+                  layers[0].leafletMap.setMaxBounds([
+                          [-39.019644, 149.985795], // lat long top left
+                          [-33.970739, 140.966559]  // lat long bottom right
+                    ])
+                  vis.map.set({
+                    minZoom: 7,
+                    maxZoom: 11,
+                  });
+                
+                    //FOR When layers are first loaded 
+                    //set population markers css
+                    population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                    //set employment markers css
+                    employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                    //set popup styles - in this case compare base case (m-bau) against the selected scenario
+                     population.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(variable),
+                      sanitizeTemplate: false,
+                      width:      300,
+                      maxHeight:  400,
+                    });
+
+                    //employment popup
+                    employment.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(variable),
+                      sanitizeTemplate: false,
+                      width:      300,
+                      maxHeight:  400,
+                    });   
+
+                    // END BASE CASE
+
+
+                  // what happens when sidebar items  are clicked on
+                  $('.list').click(function(){
+                    $('.list').removeClass('selected');
+                    $(this).addClass('selected');
+                    LayerActions[$(this).attr('id')]();
+                    
+                    // use this to specify data in the infowindow google chart
+                    window.variable = ['content.data._2016_'+window.clicked,'content.data._2021_'+window.clicked,'content.data._2031_'+window.clicked,'content.data._2046_'+window.clicked]
+                    console.log(variable)
+                    // population - style marker sizes based on selected scenario (each scenario is a column in cartodb data table)
+                    population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                    //employment - style marker sizes based on selected scenario (each scenario is a column in cartodb data table)
+                    employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                     population.setInteraction(true);
+                     employment.setInteraction(true);
+                    //set popup styles - in this case compare base case (m-bau) against the selected scenario
+                     population.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(window.variable),
+                      sanitizeTemplate: false,
+                      width:      300,
+                      maxHeight:  400,
+                    }); 
+
+                    //employment popup
+                    employment.infowindow.set({
+                     // template:   INFOWINDOW_TEMPLATE or...,
+                      template:infowindow(window.variable),
+                      sanitizeTemplate: false,
+                      width:      300,
+                      maxHeight:  400,
+                    }); 
+                
+                    }) //CLOSE SCENARIO
+                  
+                  $('#time').slider().on('slideStop', function(ev){                       
+                        thisyear=window.years[ev.value-1]
+                        document.getElementById('year').innerHTML=thisyear
+                        console.log(thisyear)
+                        console.log(window.clicked)
+                        console.log('_'+thisyear+'_'+window.clicked)
+                        population.setCartoCSS(popcss(thisyear,window.clicked))
+
+                        employment.setCartoCSS(empcss(thisyear,window.clicked))
+
+                    //  population.infowindow.set({
+                    //   template:   INFOWINDOW_TEMPLATE,
+                    //   sanitizeTemplate: false,
+                    //   width:      300,
+                    //   maxHeight:  400,
+                    // });
+                    })//CLOSE SCENARIO
+                  })
+                
+                //log error
+                .on('error', function(err) {
+                  alert("some error occurred: " + err);
+                });
+
+
+     // Wire up buttons. This determines which column gets selected when the left list is selected.
+                var LayerActions={
+                   lg1: function(){
+                      window.clicked='l_bau'
+                      window.scenario='Low:Business As Usual'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
+                      console.log(window.clicked)
+                      // console.log(window.combined)
+                      return true;
+                    },
+                    lg2: function(){
+                      window.clicked='l_cons'
+                      window.scenario='Low:Consolidated'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    lg3: function(){
+                      window.clicked='l_exp'
+                      window.scenario='Low:Expansion'
+                      window.clickedcolor_emp='#1976D2'
+                      window.clickedcolor_pop='#0D47A1'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg1: function(){
+                      window.clicked='m_bau'
+                      window.scenario='Medium:Business As Usual'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg2: function(){
+                      window.clicked='m_cons'
+                      window.scenario='Medium:Consolidated'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    mg3: function(){
+                      window.clicked='m_exp'
+                      window.scenario='Medium:Expansion'
+                      window.clickedcolor_emp='#689F38'
+                      window.clickedcolor_pop='#33691E'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg1: function(){
+                      window.clicked='h_bau'
+                      window.scenario='High:Business As Usual'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg2: function(){
+                      window.clicked='h_cons'
+                      window.scenario='High:Consolidated'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
+                      console.log(window.clicked)
+                      return true;
+                    },
+                    hg3: function(){
+                      window.clicked='h_exp'
+                      window.scenario='High:Expansion'
+                      window.clickedcolor_emp='#FBC02D'
+                      window.clickedcolor_pop='#F57F17'
+                      console.log(window.clicked)
+                      return true;
+                },          
+          }//close layer actions
+        }//close function main
+
+
+      window.onload = main;
+      </script>
+
+    <script src="https://www.google.com/uds/?file=visualization&amp;v=1.0&amp;packages=corechart" type="text/javascript"></script>
+    <link href="https://www.google.com/uds/api/visualization/1.0/707b4cf11c6a02b0e004d31b539ac729/ui+en.css" type="text/css" rel="stylesheet">
+    <script src="https://www.google.com/uds/api/visualization/1.0/707b4cf11c6a02b0e004d31b539ac729/format+en,default+en,ui+en,corechart+en.I.js" type="text/javascript"></script>
+
+</body>
+
+</html>
