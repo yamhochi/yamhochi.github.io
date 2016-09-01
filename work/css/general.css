@@ -14,13 +14,14 @@ body, html {
 	overflow-x:hidden;
 }
 
-::-moz-selection{background:#1abc9c;color:white}
+::-moz-selection{background:#85929e;color:white}
 
-::selection{background:#1abc9c;color:white}
+::selection{background:#85929e;color:white}
 
 .abcen{position: absolute;bottom: 30%;}
 
 .abcen1{position: absolute;top: 20%;}
+.abcen2{position: absolute;top: 12%;}
 
 .content-section-c {
 	border-top: 1px solid #32465A;
@@ -189,12 +190,12 @@ width: 50px;
 }
 
 .box-icon:hover {
-	background-color: #1abc9c;
+	background-color: #85929e;
 	color: #fff;
 }
 
 .owl-theme .owl-controls .owl-page span {
-background: #1abc9c !important;
+background: #85929e !important;
 }
 
 /* Nav */
@@ -245,12 +246,29 @@ color: #ECEBEB;
 	background-color: #fefefe !important;
 }*/
 
+
 .intro-header {
-	height: 75%; /* Full PAge */
+	height: 90%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	color: #34495e;
-	/*background: url(../img/intro/intro5.jpg) no-repeat center center;*/
+	/*color: #34495e;*/
+	color: #fff;
+	background: url(../img/intro/intro5.jpg) no-repeat center center;
+	/*opacity: 0.3;*/
+	background-color: rgba(0, 0, 0, 0.3);
+	background-size: cover;
+	text-align: center;
+}
+
+.inner-page {
+	height: 25%; /* Full PAge */
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 50px;
+	/*color: #34495e;*/
+	color: #fff;
+	background: url(../img/intro/intro5.jpg) no-repeat center center;
+	/*opacity: 0.3;*/
+	background-color: rgba(0, 0, 0, 0.3);
 	background-size: cover;
 	text-align: center;
 }
@@ -260,6 +278,7 @@ color: #ECEBEB;
 	padding-top: 12%;
 	padding-bottom: 20%;
 }
+
 
 .list-inline {
 	margin-top: 30px;
@@ -295,27 +314,29 @@ color: #ECEBEB;
 }
 
 .content-section-a {
-	background-color: #f8f8f8;
-	padding: 90px 0; 
-	border-bottom: 1px solid #e7e7e7;
+	background-color: #fff;
+	padding: 40px 0; 
+	/*border-bottom: 1px solid #e7e7e7;*/
 }
 
 .content-section-b {
-	border-top: 1px solid #e7e7e7;
-	border-bottom: 1px solid #e7e7e7;
-	padding: 90px 0 0 0; 
+	/*border-top: 1px solid #e7e7e7;*/
+	/*border-bottom: 1px solid #e7e7e7;*/
+	padding: 40px 0 0 0; 
 }
 
 .micro.content-section-a {
 	background-color: #fff !important; 
 	padding: 40px 0 90px 0!important; 
-	border-bottom: 1px solid #e7e7e7;
+	/*border-bottom: 1px solid #e7e7e7;*/
 
 
 }
 
 .section-heading {
 	margin-bottom: 30px;
+	margin-top: 30px;
+	font-family: Oswald;
 }
 
 .section-heading-spacer {
@@ -1277,5 +1298,24 @@ p.copyright {
     text-align:left;
     /* inline-block space fix */
     margin-right:-4px;
+}
+
+hr {
+    border-width: 1px;
+    width: 60%;
+    border-color: #e8e8e8;
+}
+
+hr .hr-blog-content {
+    margin: 30px 0px 30px 0px;
+    text-align: center !important;
+    border-width: 1px;
+    width: 60%;
+    border-color: #e8e8e8;
+}
+
+.p-blog-content {
+	margin: 30px 0px 30px 0px;
+
 }
 
