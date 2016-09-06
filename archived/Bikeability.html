@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Bikeability Map</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta name="google-site-verification" content="bHOQjaP_2zAxd-nxU1TDYpBAasDIAgtgbSKcckig3iQ" />
+
+        <link rel="shortcut icon" href="http://yamhochi.github.io/img/favicon.ico">
+        <link rel="stylesheet" href="http://yamhochi.github.io/css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!-- <link rel="stylesheet" href="file:///Users/hoecheeyam/Desktop/main.css"> -->
+
+        <!-- Fonts CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400">
+        <link rel="stylesheet" href="http://yamhochi.github.io/font-awesome-4.5.0/css/font-awesome.min.css">
+
+
+        <!-- Bootstrap Core CSS -->
+        <!-- <link href="http://yamhochi.github.io/css/bootstrap.min.css" rel="stylesheet"> -->
+
+        <!-- Custom CSS -->
+        <!-- <link href="http://yamhochi.github.io/css/stylish-portfolio.css" rel="stylesheet"> -->
+        
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="http://lifewatch.inbo.be/blog/theme/css/font-awesome-ie7.min.css">
+        <![endif]-->
+        <script src="http://yamhochi.github.io/js/modernizr-2.6.2.min.js"></script>
+
+        <!-- <link href="http://lifewatch.inbo.be/blog/feeds/rss.xml" type="application/rss+xml" rel="alternate" title="LifeWatch INBO Full RSS feed" /> -->
+    </head>
+<body>
+
+            <!-- Content -->
+            <div class="header">
+                <header class="clearfix">
+                    <h2><a href="Menu.html">MAPPED BY A.YAM</a></h2>
+                    <nav>
+                        <ul>
+                            <li><a href="About.html">About</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+<div class="container">
+<div class="content">
+<article>
+<section class="single">
+        
+        <header>
+            <h1>Mapping Melbourne's Bikeability</h1>
+        </header>
+
+<h2>Bikeable Real Distance</h2>
+
+<p>As shown on the first map above, suburbs in Inner Ring Melbourne to are generally able to access the CBD and are within 10 kilometres actual distance. Our model predicted the weighted distance is as far as a 20 kilometre bike ride away.
+<p><img alt="Bikeablity GIF1" src="http://yamhochi.github.io/img/1_base.gif" /></p>
+
+<p>The key difference between Map1 and Map 2 is that the number of traffic flows were completely removed from the predictor. This is to examine how much difference in distance it would make, if cyclists can be completely free from road traffic and possible hazards.</p>
+<p><img alt="Bikeablity GIF2" src="http://yamhochi.github.io/img/2_traffic2.gif" /></p>
+
+<p>Results show that by removing traffic from roads, the city is able to attract more 1-3 km riders and possibly more riders from the North Eastern suburbs.</p>
+
+<p>Almost 60%-70% of the Metropolitan Area has access to the CBD within a 20 kilometre bike ride. That is if all roads were created flat and equal without obstruction of external traffic and hazards. I note that visuals for this scenario are quite skewed by the noise from the animation. However further investigation to the data showed that the network analysis was run correctly.</p>
+<p>Some Text Here</p>
+<p><img alt="Bikeablity GIF" src="http://yamhochi.github.io/img/3_all2.gif" /></p>
+
+<p>How much are willing to pay to cycle to work? As we live in a world with limited resources, everything we do and not do, has a cost. Therefore the decision of to cycle or not to cycle often depends on how much we are willing to pay. </p>
+<!-- <iframe width="100%" height="500" frameborder="0" src="https://sgsep.cartodb.com/u/ay/viz/fbdac6c8-c240-11e5-9730-0e31c9be1b51/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
+
+<P>If we assume that an average person is willing to pay the cost of 20kms to cycle to the CBD to work, then the shortest path map would reflect the approximate catchment of where people can cycle to work. However distance is not the only consideration when choosing cycling as a mode of transport. There are risk factors, opportunity costs, time costs, route difficulty, etc. that are taken into account. In order to estimate these costs, a number of datasets on the VicRoads open data portal were used to come up with a framework to model an approximate cost for people to cycle to work.</P>
+
+<P>The first part of the visualisation (as shown in the animated maps) aims to measure the rideability of bike paths by using a weighted distance framework. It measures the possible number of trips entering Melbourne CBD based on a 20km threshold. </p>
+
+<p>The second part of the visualisation serves as a exploratory data analysis tool to help users understand how much each sections of roads cost and potentially how much demand there is for each of these roads.<p>
+
+<p>In simple terms, routes that are less favourable and have poor riding conditions are given a longer distance than it's actual distance on the ground. This is done by assigning a multiplier to each "cost" element such as historical bike crashes, traffic flows, bus lanes, etc, and multiplying physical distance by the total cost. Eventually a 5km bike ride for example, can become as far as 8 to 10 kms while areas located at the border of the 20km catchment actually cost more than its actual distance.<p>
+
+<p>In general, journeys that are free from hussles of traffic and heavy vehicles improve people's willingness to ride therefore stimulating higher number of riders and demand for bike paths. Journeys that have higher difficulty levels, have possible exposure to road hazards and air polution, are undesireable and generally perceived as being further than it may seem. This analysis shows that if each of these costs elements are carefully planned, manipulated and elimnated from cyclists' journeys, they would in principle reduce the "distance" (or cost) of travelling by bicycle, attract a larger volume of riders and overall, expand the coverage of the bike-able catchment.</p>
+
+
+<p><img alt="Instagram Waiting" src="https://igcdn-photos-c-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/e15/11201747_807040289380778_288871217_n.jpg" /></p>
+
+<h2>Data and methods</h2>
+
+<p>A total of 5 datasets were from VicRoads and 1 from Lands Victoria were used in to predict bike friendliness.</p>
+
+<p>1. Heavy traffic volumes that may pose danger to cyclists on the road (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/147696bb47544a209e0a5e79e165d1b0_0)</p>
+
+<p>2. Passing trucks and heavy vehicles that would discount the experience of cycling on roads (same as 1)</p>
+
+<p>3. Same as above, a bike path sharing the same road as buses means cyclists are constantly experiencing potential air and sound pollution from passing vehicles (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/a956dfc368e6429492d0e7d7f3b7124a_0)</p>
+
+<p>4. The number of traffic light stops per kilometre http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/1f3cb954526b471596dbffa30e56bb32_0</p>
+
+<p>5. Historical accident data indicating the safety of a dedicated bike path (http://vicroadsopendata.vicroadsmaps.opendata.arcgis.com/datasets/0fd99282ab1b466bb41c2da868f4aa8f_0)</p>
+
+<p>6. The slope steepness on a path indicating cyclists to either take a longer route than expected or consider other transport options (https://www.data.vic.gov.au/data/dataset/vicmap-elevation-10-20-contours-relief)</p>
+
+<p>This is aggregated and multiplied with road distance to produce a actual weighted distance for each road node. PgRouting, an open sourced routing server is used to determine the path, the actual distance and the weighted distance of over 1700 locations in Melbourne Metropolitan area. The weighted scores for each road node is visualised on the interactive map above.</p>
+
+<!-- <p>Map 4 - This serves as a exploratary data analysis tool to help viewers understand more about the weighted distance results. In principal, each road node should have a distance or weighted distance metric defined by the user. The algorithm then searches for the nearest and cheapest node based on these distance metrics, and iterates through the dataset until it reaches a specified destination. This weighted distance result, translated into a bike friendliness result is particularly useful in detecting poor infrastructure utilisation along a road, possible redundancies and risks if unattended.</p>
+
+<p>Rider demand is simply calculated by summing number of times a road section has been picked up by the routing algorithm, multiplied by the possible number of riders per journey. Roads that are high in demand usually mean they are the easiest and cheapest way for riders to travel into the CBD.</p> -->
+
+<h2>Credits</h2>
+
+<p>Special thanks to</h4>
+
+<p>MMQGIS for the animation tool http://michaelminn.com/linux/mmqgis/</p>
+
+<p>QGIS community for all the online tutorials</p>
+
+<p>Postgres, POSTGIS, pgRouting community</p>
+
+<p>CartoDB for one-click mapping</p>
+
+<p>DataVic and Geonext</p>
+
+<h4>This was also one of the winning entries for <a href="http://www.spatialsource.com.au/2015/09/01/geonext-hackfest-2015-winners-announced/" target="_blank">Geonext Hackathon</a>and further inspired <a href="http://yamhochi.github.io/JTW">this map</a></h4>
+
+
+<p>The POSTGRESQL and Python scripts for data processing are available in <a href="https://github.com/yamhochi/mapping_bikeability" target="_blank">this gist</a>.</p>
+
+
+
+<!-- <div class="paginator"><a href="http://yamhochi.github.io/JTW.html">1|</a><a href="http://yamhochi.github.io/Adjustable.html">2|</a><a href="http://yamhochi.github.io/GISRamblings.html">3|</a><a href="http://yamhochi.github.io/Bikeability">4|</a></div> -->
+</section> <!-- section single -->
+</article>
+</div> <!-- close content -->
+</div><!-- close container -->
+
+<section id="listmenu">
+    <section class="single">
+        <div class="content">
+                <h2 style="margin-bottom:50px; color:#8e8e8e"> Related projects </h2>
+                    <div class="row">
+                              <div class="col-sm-6 col-md-4">
+                                <a href="EDP.html">
+                                <div class="thumbnail">
+                                  <img src="img/landingpage.png" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Current Project</h3>
+                                    <small><a href="EDP.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div>
+                               </a>
+                              </div><!-- close col -->
+
+                              <div class="col-sm-6 col-md-4">
+                                <a href="Liveability.html"><div class="thumbnail">
+                                  <img src="img/liveability.png" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Liveability Scores</h3>
+                                    <small><a href="Liveability.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div><!-- close col -->
+
+                              <div class="col-sm-6 col-md-4">
+                                <a href="SIMO.html"><div class="thumbnail">
+                                  <img src="img/SIMO-after.png" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">SIMO Project</h3>
+                                    <small><a href="SIMO.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div> <!-- close col -->
+                              
+                              <div class="col-sm-6 col-md-4">
+                                <a href="Bikeability.html"><div class="thumbnail">
+                                  <img src="img/3_all2.gif" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Bikeability Map</h3>
+                                    <small><a href="Bikeability.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div><!-- close col -->
+                              <div class="col-sm-6 col-md-4">
+                                <a href="JTW.html"><div class="thumbnail">
+                                  <img src="img/jtw.png" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Journey to Work</h3>
+                                    <small><a href="JTW.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div><!-- close col -->
+                              <div class="col-sm-6 col-md-4">
+                                <a href="GISRamblings.html"><div class="thumbnail">
+                                  <img src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xat1/t51.2885-15/e15/11192734_648689025262617_1816410484_n.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Tools for planning</h3>
+                                    <small><a href="GISRamblings.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div><!-- close col -->
+                              <div class="col-sm-6 col-md-4">
+                                <a href="Adjustable.html"><div class="thumbnail">
+                                  <img src="img/onesize.png" alt="...">
+                                  <div class="caption">
+                                    <h3 style="font-size:100%; margin:0px">Finding Hotspots</h3>
+                                    <small><a href="Adjustable.html">Go to page</a></small>
+                                    <!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                                  </div>
+                                </div></a>
+                              </div><!-- close col -->
+                        </div> <!-- close row -->
+                        <p><a href="Menu.html">Return to Menu</a></p>
+            </div> <!-- close content -->
+        </section><!-- single -->
+</section>
+        
+            <!-- Footer -->
+    <footer>
+        <div class="container-footer">
+            <!-- <div class="row"> -->
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Hire Me</strong>
+                    </h4>
+                    <!-- <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p> -->
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i>(60) 421 139 935</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:yam.hoechee@gmail.com">yam.hoechee@gmail.com</a>
+                        </li>
+                        <p><a href="https://twitter.com/yamhochi">Twitter</a> | <a href="https://github.com/yamhochi">GitHub</a></p>
+                    </ul>
+                    <br>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Hoe-Chee Yam 2016</p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-42312007-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>
