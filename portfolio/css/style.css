@@ -542,10 +542,10 @@ pre {
   position: relative;
   /*width: 23.1%;*/
   vertical-align: top;
-  height: 252px;
+  height: 223px;
   margin-bottom: 30px;
   margin-left: -4px;
-  min-height: 252px;
+  min-height: 223px;
   box-shadow: 0 2px 1px 0 #d6d6d6;
   border: #fafafa solid 1px !important;
 
@@ -575,7 +575,7 @@ a.thumbnail.active {
   border-color: #16a085;
 }
 .thumbnail .caption {
-  padding: 9px;
+  padding: 20px 9px 9px 9px;
   color: #34495e;
 
 }
