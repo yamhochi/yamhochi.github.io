@@ -4591,6 +4591,7 @@ footer {
 .social{
   color:#34495e !important;
   padding:8px;
+  opacity:0.8;
 }
 
 .social:hover{
