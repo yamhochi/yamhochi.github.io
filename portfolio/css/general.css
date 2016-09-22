@@ -341,8 +341,18 @@ color: #ECEBEB;
 
 .thumbnail-heading {
 	margin-bottom: 8px;
-	margin-top: 20px;
-	font-family: Oswald;
+    margin-top: 30px;
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 140%;
+    color: #34495e;
+}
+
+.thumbnail-desc {
+	color:#85929e; 
+	font-weight:300 ; 
+	font-size:100%;
+	line-height: 1.5
 }
 
 .section-heading-spacer {
