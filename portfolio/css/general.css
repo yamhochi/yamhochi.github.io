@@ -348,6 +348,15 @@ color: #ECEBEB;
     color: #34495e;
 }
 
+.thumbnail-desc:hover, .thumbnail-heading:hover{
+	opacity:0.5;
+	-webkit-transition: all 0.2s ease;
+  	-moz-transition: all 0.2s ease;
+  	-ms-transition: all 0.2s ease;
+  	-o-transition: all 0.2s ease;
+  	transition: all 0.2s ease;
+}
+
 .thumbnail-desc {
 	color:#85929e; 
 	font-weight:300 ; 
