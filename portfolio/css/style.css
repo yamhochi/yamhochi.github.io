@@ -233,7 +233,10 @@ a:focus {
 .img-rounded {
   box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.1);
   border-radius: 6px;
-  height: 227px;
+  width:100%;
+  min-height: 190px;
+  height: 35vh;
+  max-height:35vh;
   opacity: 0.8;
   background-size: cover;
   background-repeat: no-repeat;
@@ -543,31 +546,37 @@ pre {
 .pre-scrollable {
   max-height: 340px;
 }
+
+.thumbnail-map{
+  margin-top: 2%
+}
+
+
+
 .thumbnail {
-  background-color: #fefefe;
-  border: 0px solid #ecf0f1;
-  border-radius: 4px;
-  overflow: hidden;
-  padding: 4px;
-  margin-bottom: 5px;
-  line-height: 1.72222;
+  /*background-color: #fefefe;*/
+  /*border: 0px solid #ecf0f1;*/
+  /*border-radius: 4px;*/
+  /*overflow: hidden;*/
+  /*padding: 4px;*/
+  /*margin-bottom: 5px;*/
+  /*line-height: 1.72222;*/
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   transform-origin: center center;
   cursor: pointer;
-  display: inline-block;
   /*display: block;*/
-  margin-right: 2.5%;
+  margin-top: 2.5%;
   overflow: hidden;
   position: relative;
   /*width: 23.1%;*/
-  vertical-align: top;
-  height: 223px;
-  margin-bottom: 30px;
-  margin-left: -4px;
-  min-height: 223px;
-  box-shadow: 0 2px 1px 0 #d6d6d6;
-  border: #fafafa solid 1px !important;
+  /*vertical-align: top;*/
+  /*height: 223px;*/
+  /*margin-bottom: 30px;*/
+  /*margin-left: -4px;*/
+  /*min-height: 223px;*/
+  /*box-shadow: 0 2px 1px 0 #d6d6d6;*/
+  /*border: #fafafa solid 1px !important;*/
 
 }
 
