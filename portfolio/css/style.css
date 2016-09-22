@@ -234,12 +234,14 @@ a:focus {
   box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.1);
   border-radius: 6px;
   height: 227px;
+  opacity: 0.8;
   background-size: cover;
   background-repeat: no-repeat;
   width: auto;
 }
 
 .img-rounded:hover {
+  opacity: 1;
   box-shadow: 0px 6px 10px 0px  rgba(0,0,0,0.3);
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -4581,11 +4583,26 @@ body.vjs-full-window {
   }
 }
 footer {
-  background-color: #edeff1;
+  background-color: #fff;
   color: #bac1c8;
   font-size: 20px;
-  /*padding: 0;*/
+  padding: 20px;
 }
+.social{
+  color:#34495e !important;
+  padding:8px;
+}
+
+.social:hover{
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.6s ease;
+  opacity:0.6;
+}
+
+
 footer a {
   color: #9aa4af;
   font-weight: 700;

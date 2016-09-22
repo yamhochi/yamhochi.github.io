@@ -344,11 +344,11 @@ color: #ECEBEB;
     margin-top: 30px;
     font-family: Raleway;
     font-weight: 600;
-    font-size: 140%;
+    font-size: 150%;
     color: #34495e;
 }
 
-.thumbnail-desc:hover, .thumbnail-heading:hover{
+.thumbnail-heading:hover{
 	opacity:0.5;
 	-webkit-transition: all 0.2s ease;
   	-moz-transition: all 0.2s ease;
@@ -358,11 +358,22 @@ color: #ECEBEB;
 }
 
 .thumbnail-desc {
+	opacity:0.6;
 	color:#85929e; 
-	font-weight:300 ; 
+	font-weight:400 ; 
 	font-size:100%;
 	line-height: 1.5
 }
+
+.thumbnail-desc:hover {
+	opacity:1;
+	-webkit-transition: all 0.2s ease;
+  	-moz-transition: all 0.2s ease;
+  	-ms-transition: all 0.2s ease;
+  	-o-transition: all 0.2s ease;
+  	transition: all 0.2s ease;
+}
+
 
 .section-heading-spacer {
 	border-top: 3px solid #e7e7e7;
@@ -1249,10 +1260,6 @@ color: #ECEBEB;
 	}	
 }
 
-footer {
-	background-color: #f8f8f8;
-	padding: 50px 0;
-}
 
 p.copyright {
 	margin: 15px 0 0;
