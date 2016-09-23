@@ -2412,6 +2412,8 @@ select[multiple].navbar-form .btn {
 }
 .navbar-default .navbar-nav > li > a {
   color: #85929E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 .navbar-default.isStuck .navbar-nav > li > a {
   /*color: #fff;*/
