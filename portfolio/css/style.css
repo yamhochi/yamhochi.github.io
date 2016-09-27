@@ -213,7 +213,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   line-height: 1.72222;
-  color: #34495e;
+  color: #2e3443;
   background-color: #ffffff;
 }
 a {
@@ -2432,6 +2432,7 @@ select[multiple].navbar-form .btn {
   color: #85929E;
   letter-spacing: 3px;
   text-transform: uppercase;
+  font-size: 90%
 }
 .navbar-default.isStuck .navbar-nav > li > a {
   /*color: #fff;*/
