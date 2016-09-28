@@ -30,6 +30,13 @@ body, html {
 	padding: 90px 0;
 }
 
+.container, .container-fluid {
+    padding-left: 2%;
+    padding-right: 2%;
+    max-width: 1170px;
+}
+
+
 .descp{
 	margin: 0;
 	padding: 0;

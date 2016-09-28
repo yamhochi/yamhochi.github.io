@@ -4963,13 +4963,6 @@ footer p {
 	}
 
 
-
-.container, .container-fluid {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    max-width: 1170px;
-}
-
 .copyright{
   background-color: #d8dfe4;
   font-size: 12px !important;
