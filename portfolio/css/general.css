@@ -1439,3 +1439,8 @@ hr .hr-blog-content {
 
 }
 
+.intro{
+	font-weight: 500;
+    color: #8d8d8d;
+    letter-spacing: 0.035em;
+}
