@@ -4981,3 +4981,7 @@ footer p {
     /*display: block;*/
     background-color: #9fa6aa!important;
 }
+
+.badge, .label {
+    font-weight: 600 !important;
+}
