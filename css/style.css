@@ -361,13 +361,14 @@ h2.landing-paragraph-thin{
 
 #projects .case-studies h6.card-title
 {
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 32px;
-  letter-spacing: -0.05rem;
+  line-height: 24px;
+  letter-spacing: -0.05;
   margin-top: 16px;
-  margin-bottom: 12px;
-  color: #6B757D
+  /* margin-bottom: 12px; */
+  color: #6B757D;
+  /* font-family:'Cousine', monospace; */
 }
 
 
