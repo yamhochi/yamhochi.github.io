@@ -1,0 +1,568 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ html, body, .block {
+  height: 100%;
+}
+
+p {
+  font-family: 'IBM Plex Serif', serif;
+  -webkit-font-smoothing: antialiased
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  /* font-family: 'IBM Plex Serif', serif; */
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  -webkit-font-smoothing: antialiased
+}
+
+.monotype{
+  font-family: 'Cousine', monospace;
+}
+
+.small{
+  font-size: 0.87rem !important;
+}
+
+.grey-text{
+  color: #899197;
+}
+
+.grey-background{
+  background-color: #f7f7f7;
+  height: fit-content;
+}
+
+.light-grey-background{
+  background-color: #fcfcfc;
+  height: fit-content;
+}
+
+.white-background{
+  background-color: #fff !important;
+  height: fit-content;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+#magic-menu2 {
+  height: 12vh;
+  min-height: 96px;
+  z-index: 3;
+  transition: all 0.5s ease;
+  height: 48px;
+  box-shadow: none; 
+  background-color: #fcfcfc;
+  color:#231F20;
+  /* border-bottom: solid 1px #f4f4f4; */
+  position: fixed;
+}
+
+#magic-menu2 .nav-wrapper{
+  align-items: center;
+  display: flex;
+}
+
+#magic-menu2 .nav-wrapper .row{
+  margin: auto
+}
+
+#magic-menu2 .navbar-contents{
+  display: flex;
+  height: 100%;
+  align-items: center
+}
+
+#magic-menu2 .navbar-breadcrumb{
+  display: flex;
+}
+
+#magic-menu2 .navbar-logo img{
+  /* display: block; */
+  height:24px;
+  margin: 12px;
+  float: right;
+  /* opacity: 0.5; */
+  transition: all 0.5s ease;
+}
+
+#magic-menu2 .navbar-logo img:hover{
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+
+#magic-menu2 .navbar-breadcrumb h6{
+  font-size: 16px;
+  transition: all 0.5s ease;
+  margin-top:auto ;
+  margin-bottom:auto ;
+  vertical-align: middle;
+  color: #899197
+  /* opacity: 0.5; */
+}
+
+#magic-menu2 .navbar-breadcrumb h6 a{
+  color: #899197
+}
+#magic-menu2 .navbar-breadcrumb h6 a:hover{
+  color: #231F20
+}
+
+#magic-menu2 .navbar-breadcrumb .root{
+  margin-left: -2px; 
+}
+
+#magic-menu2 .navbar-breadcrumb .this{
+  margin-left: 4px;
+  font-size: 0rem;
+  opacity: 0;
+
+}
+
+#magic-menu2.shrink {
+  height: 48px;
+  min-height: 48px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); 
+  transition: all 0.5s ease;
+}
+
+#magic-menu2.shrink.up {
+  transform: translateY(-60px);
+  transition: all 0.5s ease;
+}
+
+
+#magic-menu2.shrink .navbar-breadcrumb h6{
+  font-size: 1rem;
+  transition: all 0.5s ease;
+  opacity: 0.5;
+  font-weight: 400;
+  font-family: 'Cousine', monospace;
+}
+
+#magic-menu2.shrink .navbar-logo img{
+  /* display: block; */
+  height: 18px;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+#magic-menu2.shrink .navbar-logo img:hover{
+  opacity: 1;
+}
+
+#magic-menu2.shrink .navbar-breadcrumb .this{
+  /* font-size: 1.15rem; */
+  /* display: block; */
+  opacity: 1;
+  transition: all 0.5s ease;
+  color:#231F20;
+  /* font-weight: 600 */
+}
+
+
+#page-content{
+ position: relative;
+ display: block;
+}
+
+#page-content p{
+  letter-spacing: -0.02em;
+  font-size: 1.067rem;
+  padding: 16px 0px;
+  line-height: 1.8rem
+ }
+
+#page-content img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  margin: 12px 0px;
+  /* border: solid 1px #C4C8CB */
+}
+
+
+#page-content hr{
+  border-color: #e8e8e8;
+  border-width: 0.5px;
+  /* background-color: rgba(255, 255, 255, 0) */
+  margin: 0px
+}
+
+#page-content h4.strong-title,
+#up-next-menu h4.strong-title{
+  font-weight: 500;
+}
+
+#page-content h4
+{
+  font-size: 2rem;
+  /* color: #485163 */
+}
+
+#page-content h6.sub-title
+{
+  font-size:1.33rem;
+  letter-spacing: 0;
+  color: #899197;
+  display: inline;
+}
+#page-content .section-header{
+  margin: 48px 0 24px;
+}
+
+#page-content .section-header .tag{
+  margin: 0 8px;
+  /* color: #938CC7 */
+}
+
+
+
+#page-content .intro{
+  background-color: #fcfcfc;
+  padding: 96px 0 48px 0
+ }
+
+#page-content .collapsible{
+  box-shadow: none;
+  border:none;
+}
+
+#page-content .collapsible-header,
+#page-content .not-collapsible-header{
+  border-bottom: none;  
+  position: relative;
+  margin: 32px 0 4px 0;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#page-content .not-collapsible-header{
+  display: flex;
+}
+
+#page-content .two-col {
+  background-color: #f7f7f7;
+  padding-bottom: 32px;
+}
+#page-content .two-col .collapsible-header{
+  display: inline-block;
+  position: relative;
+}
+
+#page-content .two-col .collapsible-header h4{
+  font-size:2.67rem;
+  padding: 0px
+}
+
+#page-content .two-col .collapsible-body p{
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 4px
+}
+
+#page-content .collapsible-header .collapsible-expand-button{
+  margin: 1.52rem 0 0.912rem 0;
+  position: absolute;
+  right: 0px;
+  top: 0;
+}
+
+#page-content .collapsible-collapse-button{
+  margin: 1.52rem 0 0.912rem 0;
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  cursor: pointer;
+}
+
+
+#page-content .collapsible-expand-button i,
+#page-content .collapsible-collapse-button i{
+  font-size: 2rem;
+  margin-right: 0px
+}
+
+#page-content .collapsible-header.active  i{
+  transform: rotate(180deg);
+  opacity: 0.0
+}
+
+#page-content .collapsible .collapsible-body{
+  padding: 0px;
+  border: none;
+  height: fit-content;
+}
+
+#page-content .collapsible-preview-content p,
+#page-content .not-collapsible-preview-content p{
+  margin: 0
+}
+
+#page-content .collapsible-preview-content img,
+#page-content .not-collapsible-preview-content img{
+  height: auto;
+  max-height: 400px
+}
+
+#page-content .collapsible-preview-content .col-2-preview{
+  padding-top: 24px
+}
+
+#page-content .col-2-preview .monotype{
+  font-size: 0.87rem;
+  color: #899197;
+  
+}
+
+#page-content .col-2-preview p{
+  margin-left: 16px
+}
+
+#page-content .collapsible-preview-content .col-2-preview img{
+  object-fit: scale-down;
+}
+
+#page-content .collapsible-preview-content .col-2-preview img,
+#page-content .collapsible-preview-content .col-2-preview video{
+  margin: 0px 0px 32px 0px;
+}
+
+#page-content .collapsible li.active .collapsible-preview-content{
+  display: none;
+}
+
+#page-content .collapsible .collapsible-body .body-section{
+  padding: 16px 0px 8px 0px;
+}
+#page-content .collapsible .collapsible-body .body-section.end{
+  padding: 48px 0px;
+  /* position: relative; */
+}
+
+#page-content .collapsible .collapsible-body .body-landing{
+  padding-bottom: 24px;
+  position: relative;
+}
+
+#page-content .collapsible .collapsible-body .collapsible-collapse-button i:hover,
+#page-content .collapsible .collapsible-header i:hover{
+  opacity: 0.5;
+}
+
+#page-content video{
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  max-height: 640px
+
+}
+
+#page-content .space-m{
+  padding-top:16px
+}
+
+#up-next-menu.bottom-container-menu{
+  /* margin-top: 32px; */
+  background-color: #fcfcfc;
+  padding-top: 4%;
+  padding-bottom: 5%;
+  height: fit-content;
+}
+
+
+#up-next-menu .section-and-button{
+  display: flex;
+  align-items: center;
+  margin:24px 0px 16px 0px;
+}
+
+
+#up-next-menu .btn-floating{
+  position: absolute;
+  overflow: visible;
+  opacity: 0.75;
+}
+
+#up-next-menu .btn-floating.right{
+  float: right;
+  right: -10px;
+}
+
+#up-next-menu .btn-floating.left{
+  float: left;
+}
+
+#up-next-menu .btn-floating i{
+  color: #A6ACB1
+}
+
+#up-next-menu #bottom.bottom-menu {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  height: auto;
+  padding: 8px
+}
+
+#up-next-menu #bottom.bottom-menu::-webkit-scrollbar {
+  display: none;
+}
+
+
+#up-next-menu #bottom.bottom-menu .card{
+  display: inline-block;
+  width: 40%;
+  min-width: 240px;
+  margin: 0 16px;
+  border-radius: 0px;
+  box-shadow: none;
+  transition: transform 0.5s, box-shadow 0.5s;
+  background-color: rgba(255, 255, 255, 0)
+}
+
+#up-next-menu #bottom.bottom-menu .card .card-image{
+  box-shadow: none;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+#up-next-menu #bottom.bottom-menu .card .card-image:hover{
+  box-shadow: 0 -1px 20px 0 rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+#up-next-menu #bottom.bottom-menu h6{
+  /* color: #231F20; */
+  color: #6B757D;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+#up-next-menu #bottom.bottom-menu .card .card-content{
+  margin-bottom: 16px;
+}
+
+#up-next-menu #bottom.bottom-menu .card .card-content,
+#up-next-menu #bottom.bottom-menu .card .card-content p{
+  padding: 0px
+}
+
+#up-next-menu #bottom.bottom-menu .card-image{
+  height: 136px;
+}
+
+#up-next-menu #bottom.bottom-menu .case-studies .card-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0px;
+}
+
+
+#up-next-menu .case-studies h6.card-title
+{
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  margin-top: 12px;
+  margin-bottom: 0px;
+  color: #6B757D
+}
+
+
+#up-next-menu .case-studies h7.card-subtitle{
+  color: #A6ACB1;
+  font-size: 1.125em;
+  font-weight: 400;
+  letter-spacing: 0px;
+  margin-top: 8px;
+  /* margin-bottom: 8px */
+  /* font-family: 'IBM Plex Serif', serif; */
+}
+
+#up-next-menu .case-studies p.card-paragraph{
+  margin: 16px 0px; 
+}
+
+
+footer.landing-footer{
+  /* position: relative ; */
+  /* position: sticky; */
+  /* position: fixed;
+  bottom: -1400px ; */
+  z-index: 3;
+  background-color: #f7f7f7;
+  border-style: solid;
+  border-color: #f4f4f4;
+  border-width: 1px;
+  transition: all 1s ease;
+  width: 100%
+}
+
+footer.landing-footer.show{
+  position: fixed;
+  bottom: 0;
+  /* transform: translateY(15vh); */
+  transition: all 1s ease;
+}
+
+.footer{
+  padding: 50px 0px;
+  margin-bottom: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: row; */
+}
+
+.footer h7{
+  font-size: 0.93em;
+  font-weight: 400;
+  letter-spacing: -0.0px;
+  float: left;
+  color: #A6ACB1;
+  
+}
+
+.footer h6 > span{
+  padding: 0 8px;
+  color: #A6ACB1;
+  letter-spacing:0;
+  font-weight: 500;
+  width: 33.33%;
+  /* display: inline-block; */
+  /* transition: all 0.5s ease; */
+}
+
+.footer h6 > span a:hover{
+  font-weight: 600;
+  color: #231F20;
+  transition: all 1s ease;
+  /* width: 33.33% */
+}
+
+.footer h6 > span a{
+
+  color: #A6ACB1;
+
+}
+
+.footer-links{
+  display: flex;
+  margin-top: 0px;
+  width: 200px
+}
+

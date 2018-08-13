@@ -1,1 +1,0 @@
-# yamhochi.github.io
