@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-p {
+p, li{
   font-family: 'IBM Plex Serif', serif;
   -webkit-font-smoothing: antialiased
 }
@@ -313,7 +313,10 @@ h1, h2, h3, h4, h5, h6, h7 {
 #page-content .collapsible-preview-content img,
 #page-content .not-collapsible-preview-content img{
   height: auto;
-  max-height: 400px
+}
+
+#page-content .collapsible-preview-content img{
+  max-height: 400px;
 }
 
 #page-content .collapsible-preview-content .col-2-preview{
@@ -424,7 +427,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 #up-next-menu #bottom.bottom-menu .card{
   display: inline-block;
   width: 40%;
-  min-width: 240px;
+  min-width: 220px;
   margin: 0 16px;
   border-radius: 0px;
   box-shadow: none;
