@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 
 /*  q */
 
-.landing-paragraph b{
+.landing-paragraph b,
+.landing-paragraph a{
   font-weight: 700;
   /* opacity: 0.6; */
   color:#938CC7;
