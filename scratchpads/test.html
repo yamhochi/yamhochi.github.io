@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-85623191-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Andie Yam</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="/css/page.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700 |IBM+Plex+Serif:300,400,400i,600"
+    rel="stylesheet">
+</head>
+
+<body>
+
+
+
+  <nav id="magic-menu2">
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-contents col s12 l10 push-l1">
+            <div class="navbar-logo clickable">
+              <a href="/index.html#landing">
+                <img src="/images/logo-ay-48px.svg" alt="logo 48px">
+              </a>
+            </div>
+            <div class="navbar-breadcrumb">
+              <h6 class="root clickable">
+                <a href="/index.html#projects">/ work</a>
+              </h6>
+              <h6 class="monotype this"> / nsw seed web map</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="page-content" class="content scrollspy">
+    <section class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l10 push-l1">
+            <div class="section-header">
+              <h4 class="strong-title">SEED online mapping portal</h4>
+              <h6 class="sub-title">Client:
+                <strong> NSW Department of Finance and Innovation</strong>
+              </h6>
+              <span class="monotype tag">/ prototyping / front-end development</span>
+            </div>
+            <p>SEED (Sharing and Enabling Environmental Data) is a plaform built for storing, sharing and visualising
+              environmental
+              information. It empowers the community to search for and analyse large amounts of data when making
+              critical
+              decisions about the environment.</p>
+            <div>
+              <!-- <img src="/images/dataviz/jtw-720.mov"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr noshade>
+
+
+    <section class="two-col white-background">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l10 push-l1">
+            <div class="not-collapsible-header">
+              <h4>Journey to work patterns</h4>
+            </div>
+            <div class="col-2-preview">
+              <div>
+                <img src="/images/dataviz/jtw.gif">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr noshade>
+
+    <section class="two-col">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l10 push-l1">
+            <div class="not-collapsible-header">
+              <h4>Bikeability</h4>
+            </div>
+            <div class="col-2-preview">
+              <div>
+                <img src="/images/dataviz/3_all2.gif">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr noshade>
+    <section class="two-col white-background">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l10 push-l1">
+            <ul class="collapsible">
+              <li>
+                <div class="collapsible-header">
+                  <div class="col s1 l3">
+                    <h4>Spatial query</h4>
+                  </div>
+                  <div class="col s12 l7">
+                    <h5>Location search as we know it</h5>
+                    <div>
+                      <img src="/images/seed/seed--xy-search.png">
+                    </div>
+                    <p>Most people would have familar with the concept of searching for a nearby location. (eg. Using
+                      Google Maps to
+                      search for nearby amenities, points of interest, or using Uber to find the nearest ride etc.)
+                      This also means,
+                      finding nearest x,y coordinates in relation to the user’s x,y coordnate.
+                    </p>
+                  </div>
+                  <span class="collapsible-expand-button" role="button">
+                    <i class="material-icons">expand_more</i>
+                  </span>
+                </div>
+
+                <div class="collapsible-body">
+                  <div class="body-section col s12 l7 push-l3">
+                    <h5>Geospatial features in real life</h5>
+                    <div>
+                      <img src="/images/seed/seed--geospatial-irl.png">
+                    </div>
+                  </div>
+                  <div class="body-section col s12 l12">
+                    <p>When it comes to more complex geospatial features, finding the nearest patch of land may not be
+                      as simple
+                      finding x,y coordinates only. There are several considerations such as the centroid and geometry
+                      of the layer or
+                      layer itersection rules that may skew query results.</p>
+                  </div>
+                  <div class="body-section col s12 l12">
+                    <h5>Existing solutions and challenges</h5>
+                    <div class="col s12 l6 m6">
+                      <img src="/images/seed/seed--search-168results.png">
+                    </div>
+                    <div class="col s12 l6 m6">
+                      <img src="/images/seed/seed--search-0results.png">
+                    </div>
+                    <p class="monotype small grey-text">
+                      There are various out of the box solutions that enable spatial search by map extent (left figure)
+                      and in principle,
+                      fulfills the criteria of spatial search in the brief.
+                      However, this requires the spatial layers to be visible on the map. With more than 200 geospatial
+                      layers in our
+                      repository, this feature becomes very cumbersome to use, let alone helping people make sense of
+                      the data they are
+                      seeing. It impacts overall usability due to:</p>
+                    <p class="monotype small grey-text">1. Visual information overload</p>
+                    <p class="monotype small grey-text">2. Incomplete representation of spatial information (documents
+                      such as legislative
+                      information are not physically
+                      present on the map but still pertinent to the search critieria)</p>
+                    <p class="monotype small grey-text">3. Poor loading performance on the browser</p>
+                  </div>
+                  <div class="body-section col s12 l12">
+                    <h5>Building a lighter weight search</h5>
+                    <p>While spatial information are highly visual, but in reality we know search can be fast and
+                      optimal if it does not
+                      need require data to be rendered graphically. Here’s an example solution to match spatial extent
+                      to spatial layers
+                      without having to render them extensively on the browser.</p>
+                    <div class="col-2-preview">
+                      <div class="col s12 l8 space-m">
+                        <img src="/images/seed/seed--grids.png">
+                      </div>
+                      <div class="col s12 l4 space-m">
+                        <p class="monotype small grey-text">1. Divide New South Wales into 200+ base sections based on
+                          Local Government
+                          Area
+                          (LGA). Other options: this can be done using uniform grids or finer grain boundaries such as
+                          SA2 or Suburbs.</p>
+                      </div>
+                    </div>
+                    <div class="col-2-preview">
+                      <div class="col s12 l8 space-m">
+                        <img src="/images/seed/seed--purple-boxes.png">
+                      </div>
+                      <div class="col s12 l4 space-m">
+                        <p class="monotype small grey-text">2. Iterate through all layers in the database. For each LGA
+                          that the layer
+                          intersects with, assign that intersecting LGA as an attribute. Return json that shows each
+                          spatial layer and
+                          their
+                          corresponding LGA attributes.</p>
+                      </div>
+                    </div>
+                    <div class="col-2-preview">
+                      <div class="col s12 l8 space-m">
+                        <img src="/images/seed/seed--search-extent.png">
+                      </div>
+                      <div class="col s12 l4 space-m">
+                        <p class="monotype small grey-text">3. When user performs a search by spatial extent, the
+                          system only needs to know
+                          which LGA intersects with the search extent. Return a list of those LGAs.</p>
+                      </div>
+                    </div>
+                    <div class="col-2-preview">
+                      <div class="col s12 l8 space-m">
+                        <img src="/images/seed/seed--purple-boxes-with-orange.png">
+                      </div>
+                      <div class="col s12 l4 space-m">
+                        <p class="monotype small grey-text">4. Using the returned list in step 3, iterate through the
+                          json in step 2 and
+                          find spatial layers that have matching LGAs with that list.</p>
+                      </div>
+                    </div>
+                    <div class="col-2-preview">
+                      <div class="col s12 l8 space-m">
+                        <img src="/images/seed/seed--search-168results-after.png">
+                      </div>
+                      <div class="col s12 l4 space-m">
+                        <p class="monotype small grey-text">5. The results can be rendered as a text list on the
+                          interface without having to render the spatial results all at once.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="body-section col s12 l12">
+                    <h5>Results preview and visual confirmation</h5>
+                    <p>The returned list could still be extensive. Here, we introduced a preview functionality to help
+                      users visually confirm the results before proceeding to load the spatial layer. This reduces the
+                      amount of time they have to wait while the browser is rendering layer. This also allows user to
+                      quickly interrogate the results and correct their inputs iteratively. This improves
+                      discoverabiltiy and has significantly higher impact on data education and enablement.</p>
+                    <div class="col s12 m10 l8">
+                      <img src="/images/seed/seed--results-preview.png">
+                    </div>
+                  </div>
+
+
+                  <span class="collapsible-collapse-button" role="button">
+                    <i class="material-icons">expand_less</i>
+                  </span>
+                </div>
+
+
+
+          </div>
+
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+    <hr noshade>
+  </div>
+  <div id="up-next-menu" class="bottom-container-menu">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 l10 push-l1">
+          <div class="section-header">
+            <h4 class="strong-title">Up next</h4>
+          </div>
+          <div class="section-and-button">
+            <!-- <a class="btn-floating left waves-effect waves-light white">
+                        <i class="material-icons">chevron_left</i>
+                      </a> -->
+            <section id="bottom" class="bottom-menu">
+              <div class="card case-studies clickable" onclick="location.href='ansarada.html'">
+                <div class="card-image">
+                  <img src="/images/landing--1.2-ansarada.png">
+                </div>
+                <div class="card-content">
+                  <h6>Insights email</h6>
+                  <p class="monotype small grey-text">product / design systems</p>
+                </div>
+              </div>
+              <!-- <div class="card case-studies clickable" onclick="location.href='seed.html'">
+                  <div class="card-image">
+                    <img src="/images/landing--2-seed.png">
+                  </div>
+                  <div class="card-content">
+                    <h6>Map search</h6>
+                    <p class="monotype small grey-text">prototyping / develop</p>
+                  </div>
+                </div> -->
+              <div class="card case-studies clickable" onclick="location.href='single-sign-on.html'">
+                <div class="card-image">
+                  <img src="/images/landing--1-cba-app.png">
+                </div>
+                <div class="card-content">
+                  <h6>Single sign on</h6>
+                  <p class="monotype small grey-text">prototyping</p>
+                </div>
+              </div>
+              <div class="card case-studies clickable" onclick="location.href='simo.html'">
+                <div class="card-image">
+                  <img src="/images/landing--6-simo.png">
+                </div>
+                <div class="card-content">
+                  <h6>Simo indoor map</h6>
+                  <p class="monotype small grey-text">research</p>
+                </div>
+              </div>
+              <div class="card case-studies clickable" onclick="location.href='bikeability.html'">
+                <div class="card-image">
+                  <img src="/images/landing--7-bikeability.png">
+                </div>
+                <div class="card-content">
+                  <h6>Melbourne city's bikeability</h6>
+                  <p class="monotype small grey-text">data analysis</p>
+                </div>
+              </div>
+            </section>
+            <!-- <a class="btn-floating right waves-effect waves-light white">
+                        <i class="material-icons">chevron_right</i>
+                      </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="landing-footer">
+    <div class="container">
+      <div class="footer">
+        <h7>Designed and built with 💛 by © Andie Yam 👩🏻‍💻 since 2013 🇲🇾 → 🇸🇬 → 🇦🇺</h7>
+        <h6 class="footer-links">
+          <span class="clickable">
+            <a href="/index.html#landing">About</a>
+          </span>
+          <span class="clickable">
+            <a href="/index.html#projects">Work</a>
+          </span>
+          <span class="clickable">
+            <a href="mailto:yam.hoechee@gmail.com">Contact</a>
+          </span>
+        </h6>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="/js/init-page.js"></script>
+
+
+</body>
+
+</html>
